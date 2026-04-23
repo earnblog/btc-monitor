@@ -66,41 +66,59 @@ html,body,[class*="css"]{background-color:#080c14!important;color:#c0cce0!import
 </style>
 """, unsafe_allow_html=True)
 
-# ── Binance REST API（不依赖ccxt，更稳定）────────────────────────────────────
-BINANCE_BASE = "https://api.binance.com"
+# ── Binance REST API ─────────────────────────────────────────────────────────
+# 多个备用域名，任何一个成功就返回
+BINANCE_HOSTS = [
+    "https://api.binance.com",
+    "https://api1.binance.com",
+    "https://api2.binance.com",
+    "https://api3.binance.com",
+]
 
-TF_MAP = {
-    '5m':'5m','15m':'15m','1h':'1h','4h':'4h','1d':'1d'
-}
+TF_MAP = {'5m':'5m','15m':'15m','1h':'1h','4h':'4h','1d':'1d'}
 
 # ══════════════════════════════════════════════════════════════════════════════
 # 数据 & 指标
 # ══════════════════════════════════════════════════════════════════════════════
 def fetch_ohlcv(symbol, tf, limit=300):
-    try:
-        sym = symbol.replace('/','')
-        url = f"{BINANCE_BASE}/api/v3/klines"
-        r   = requests.get(url, params={"symbol":sym,"interval":TF_MAP[tf],"limit":limit}, timeout=10)
-        raw = r.json()
-        df  = pd.DataFrame(raw, columns=['ts','open','high','low','close','volume',
-                                          'close_time','quote_vol','trades','taker_base',
-                                          'taker_quote','ignore'])
-        df['time']  = pd.to_datetime(df['ts'].astype(float), unit='ms')
-        for c in ['open','high','low','close','volume']:
-            df[c] = df[c].astype(float)
-        return df[['time','open','high','low','close','volume']]
-    except Exception as e:
-        return pd.DataFrame()
+    sym = symbol.replace('/','')
+    last_err = ""
+    for host in BINANCE_HOSTS:
+        try:
+            url = f"{host}/api/v3/klines"
+            r   = requests.get(url,
+                    params={"symbol":sym,"interval":TF_MAP[tf],"limit":limit},
+                    timeout=12, headers={"User-Agent":"Mozilla/5.0"})
+            r.raise_for_status()
+            raw = r.json()
+            if not isinstance(raw, list) or len(raw) == 0:
+                last_err = f"空数据: {raw}"
+                continue
+            df = pd.DataFrame(raw, columns=['ts','open','high','low','close','volume',
+                                            'close_time','quote_vol','trades',
+                                            'taker_base','taker_quote','ignore'])
+            df['time'] = pd.to_datetime(df['ts'].astype(float), unit='ms')
+            for c in ['open','high','low','close','volume']:
+                df[c] = df[c].astype(float)
+            return df[['time','open','high','low','close','volume']]
+        except Exception as e:
+            last_err = str(e)
+            continue
+    st.error(f"K线获取失败({sym} {tf}): {last_err}")
+    return pd.DataFrame()
 
 def fetch_realtime_price(symbol):
-    """取实时Ticker价格"""
-    try:
-        sym = symbol.replace('/','')
-        url = f"{BINANCE_BASE}/api/v3/ticker/price"
-        r   = requests.get(url, params={"symbol":sym}, timeout=5)
-        return float(r.json()['price'])
-    except:
-        return None
+    sym = symbol.replace('/','')
+    for host in BINANCE_HOSTS:
+        try:
+            url = f"{host}/api/v3/ticker/price"
+            r   = requests.get(url, params={"symbol":sym}, timeout=6,
+                               headers={"User-Agent":"Mozilla/5.0"})
+            r.raise_for_status()
+            return float(r.json()['price'])
+        except:
+            continue
+    return None
 
 for k in ['pos_short','pos_mid','pos_long']:
     if k not in st.session_state: st.session_state[k] = None
