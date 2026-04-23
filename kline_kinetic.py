@@ -923,7 +923,7 @@ def page_chart():
     COINS   = ["BTC","ETH","SOL","BNB","XRP","DOGE","ADA","AVAX","DOT","LINK",
                "UNI","ATOM","LTC","BCH","FIL","APT","ARB","OP","INJ","TIA"]
 
-    # ── 控制栏 ────────────────────────────────────────────────────────────
+    # ── 控制栏第一行 ──────────────────────────────────────────────────────
     c1,c2,c3,c4,c5 = st.columns([1,1,1.2,2.5,0.8])
     with c1:
         st.markdown('<div class="ctrl-label">币种</div>', unsafe_allow_html=True)
@@ -937,15 +937,33 @@ def page_chart():
                                      value=150, label_visibility="collapsed")
     with c4:
         st.markdown('<div class="ctrl-label">叠加指标（可多选）</div>', unsafe_allow_html=True)
-        all_inds = ["EMA7","EMA13","EMA24","EMA52","EMA99","EMA200",
+        all_inds = ["EMA7","EMA13","EMA20","EMA24","EMA52","EMA99","EMA200",
                     "布林带","MACD","RSI","KDJ","W%R","CCI","ATR","成交量"]
         indicators = st.multiselect("_ind", all_inds,
-                                    default=["EMA52","MACD","成交量"],
+                                    default=["EMA20","EMA200","MACD","成交量"],
                                     label_visibility="collapsed")
     with c5:
         st.markdown('<div class="ctrl-label">&nbsp;</div>', unsafe_allow_html=True)
         if st.button("🔄", use_container_width=True, key="chart_refresh"):
             st.cache_data.clear()
+
+    # ── MACD参数设置（仅当选了MACD才显示）───────────────────────────────
+    macd_fast, macd_slow, macd_sig = 12, 26, 9
+    if "MACD" in indicators:
+        with st.expander("⚙️ MACD 参数设置", expanded=False):
+            mc1, mc2, mc3 = st.columns(3)
+            with mc1:
+                st.markdown('<div class="ctrl-label">快线 (Fast)</div>', unsafe_allow_html=True)
+                macd_fast = st.number_input("", min_value=2, max_value=50,
+                                            value=12, key="mf", label_visibility="collapsed")
+            with mc2:
+                st.markdown('<div class="ctrl-label">慢线 (Slow)</div>', unsafe_allow_html=True)
+                macd_slow = st.number_input("", min_value=5, max_value=200,
+                                            value=26, key="ms", label_visibility="collapsed")
+            with mc3:
+                st.markdown('<div class="ctrl-label">信号线 (Signal)</div>', unsafe_allow_html=True)
+                macd_sig  = st.number_input("", min_value=2, max_value=50,
+                                            value=9,  key="mg", label_visibility="collapsed")
 
     # ── 实时价格 ──────────────────────────────────────────────────────────
     ticker = fetch_chart_ticker(coin)
@@ -974,8 +992,16 @@ def page_chart():
         st.error(f"获取 {coin}/USDT {tf} 数据失败")
         return
 
-    st.plotly_chart(build_kline_chart(df_c, coin, tf, indicators, n_candles),
-                    use_container_width=True)
+    st.plotly_chart(build_kline_chart(df_c, coin, tf, indicators, n_candles,
+                                      macd_fast, macd_slow, macd_sig),
+                    use_container_width=True,
+                    config={
+                        "scrollZoom": True,          # 滚轮缩放
+                        "displayModeBar": True,       # 显示工具栏
+                        "modeBarButtonsToAdd": ["drawline","eraseshape"],
+                        "modeBarButtonsToRemove": ["autoScale2d","lasso2d"],
+                        "displaylogo": False,
+                    })
     st.markdown(f'<div style="font-family:\'Share Tech Mono\',monospace;font-size:.68rem;color:#ffd740;text-align:right">数据来源: OKX · {len(df_c)}根K线</div>',
                 unsafe_allow_html=True)
 
@@ -1025,7 +1051,8 @@ def fetch_chart_ticker(symbol):
     except:
         return None
 
-def build_kline_chart(df, symbol, tf, indicators, n_candles):
+def build_kline_chart(df, symbol, tf, indicators, n_candles,
+                      macd_fast=12, macd_slow=26, macd_sig=9):
     if df.empty: return go.Figure()
     d = df.iloc[-n_candles:].copy()
     sub_inds = [i for i in indicators if i in ("MACD","RSI","KDJ","W%R","CCI","ATR","成交量")]
@@ -1039,14 +1066,21 @@ def build_kline_chart(df, symbol, tf, indicators, n_candles):
         name="K线",increasing_fillcolor="#00c853",increasing_line_color="#00c853",
         decreasing_fillcolor="#d50000",decreasing_line_color="#d50000",line_width=1),row=1,col=1)
 
-    ema_cfg = {"EMA7":("#ff9800",7,1.2),"EMA13":("#e040fb",13,1.2),
-               "EMA24":("#aa44ff",24,1.5),"EMA52":("#00e676",52,2.0),
-               "EMA99":("#4af0c4",99,1.5),"EMA200":("#ffd740",200,1.5)}
+    # EMA均线（含EMA20和EMA200）
+    ema_cfg = {
+        "EMA7":  ("#ff9800",  7,  1.2),
+        "EMA13": ("#e040fb",  13, 1.2),
+        "EMA20": ("#00bcd4",  20, 1.8),   # 青色
+        "EMA24": ("#aa44ff",  24, 1.5),
+        "EMA52": ("#00e676",  52, 2.0),
+        "EMA99": ("#4af0c4",  99, 1.5),
+        "EMA200":("#ff6b35",  200,2.0),   # 橙红色，醒目
+    }
     for name,(color,span,width) in ema_cfg.items():
         if name in indicators:
             ema = df['close'].ewm(span=span,adjust=False).mean()
             fig.add_trace(go.Scatter(x=d['time'],y=ema.iloc[-n_candles:],name=name,
-                line=dict(color=color,width=width),opacity=0.85),row=1,col=1)
+                line=dict(color=color,width=width),opacity=0.9),row=1,col=1)
 
     if "布林带" in indicators:
         mid = df['close'].rolling(20).mean(); std = df['close'].rolling(20).std()
@@ -1062,20 +1096,62 @@ def build_kline_chart(df, symbol, tf, indicators, n_candles):
     for idx,ind in enumerate(sub_inds):
         row = idx+2
         if ind=="成交量":
-            vc=["#00c853" if c>=o else "#d50000" for c,o in zip(d['close'],d['open'])]
-            fig.add_trace(go.Bar(x=d['time'],y=d['volume'],name="成交量",marker_color=vc,opacity=0.7),row=row,col=1)
+            # 空心柱判断：低于近10根均值60%
+            vol_s   = d['volume']
+            vol_avg = vol_s.rolling(10).mean()
+            weak    = vol_s < vol_avg * 0.6
+            # 实心色 / 空心用透明填充+边框
+            fill_colors = []
+            line_colors = []
+            for i,(c,o,w) in enumerate(zip(d['close'],d['open'],weak)):
+                base = "#00c853" if c>=o else "#d50000"
+                if w:
+                    fill_colors.append("rgba(0,0,0,0)")   # 空心
+                    line_colors.append(base)
+                else:
+                    fill_colors.append(base)
+                    line_colors.append(base)
+            fig.add_trace(go.Bar(x=d['time'],y=d['volume'],name="成交量",
+                marker=dict(color=fill_colors,
+                            line=dict(color=line_colors,width=1)),
+                opacity=0.85),row=row,col=1)
+
         elif ind=="MACD":
-            dif=df['close'].ewm(span=12,adjust=False).mean()-df['close'].ewm(span=26,adjust=False).mean()
-            dea=dif.ewm(span=9,adjust=False).mean(); hist=(dif-dea)*2
-            hc=["#00c853" if v>=0 else "#d50000" for v in hist.iloc[-n_candles:]]
-            fig.add_trace(go.Bar(x=d['time'],y=hist.iloc[-n_candles:],name="MACD柱",marker_color=hc,opacity=0.75),row=row,col=1)
-            fig.add_trace(go.Scatter(x=d['time'],y=dif.iloc[-n_candles:],name="DIF",line=dict(color="#e8f0ff",width=1.5)),row=row,col=1)
-            fig.add_trace(go.Scatter(x=d['time'],y=dea.iloc[-n_candles:],name="DEA",line=dict(color="#ffd740",width=1.2)),row=row,col=1)
+            dif = df['close'].ewm(span=macd_fast,adjust=False).mean() - \
+                  df['close'].ewm(span=macd_slow,adjust=False).mean()
+            dea  = dif.ewm(span=macd_sig,adjust=False).mean()
+            hist = (dif-dea)*2
+            hist_d   = hist.iloc[-n_candles:]
+            hist_abs = hist_d.abs()
+            hist_avg = hist_abs.rolling(10).mean()
+            weak     = hist_abs < hist_avg * 0.6
+
+            fill_colors, line_colors = [], []
+            for v, w in zip(hist_d, weak):
+                base = "#00c853" if v >= 0 else "#d50000"
+                if w:
+                    fill_colors.append("rgba(0,0,0,0)")
+                    line_colors.append(base)
+                else:
+                    fill_colors.append(base)
+                    line_colors.append(base)
+
+            fig.add_trace(go.Bar(x=d['time'], y=hist_d,
+                name=f"MACD({macd_fast},{macd_slow},{macd_sig})",
+                marker=dict(color=fill_colors,
+                            line=dict(color=line_colors, width=1)),
+                opacity=0.9), row=row, col=1)
+            fig.add_trace(go.Scatter(x=d['time'],y=dif.iloc[-n_candles:],
+                name="DIF",line=dict(color="#e8f0ff",width=1.5)),row=row,col=1)
+            fig.add_trace(go.Scatter(x=d['time'],y=dea.iloc[-n_candles:],
+                name="DEA",line=dict(color="#ffd740",width=1.2)),row=row,col=1)
             fig.add_hline(y=0,line_color="#2a4a6a",line_width=1,row=row,col=1)
+
         elif ind=="RSI":
             delta=df['close'].diff(); gain=delta.clip(lower=0).rolling(14).mean()
             loss=(-delta.clip(upper=0)).rolling(14).mean(); rsi=100-(100/(1+gain/loss))
-            fig.add_trace(go.Scatter(x=d['time'],y=rsi.iloc[-n_candles:],name="RSI",line=dict(color="#aa88ff",width=1.5)),row=row,col=1)
+            fig.add_trace(go.Scatter(x=d['time'],y=rsi.iloc[-n_candles:],name="RSI",
+                line=dict(color="#aa88ff",width=1.5)),row=row,col=1)
             for lv,c in [(70,"#ff525244"),(50,"#ffffff22"),(30,"#00e67644")]:
                 fig.add_hline(y=lv,line_color=c,line_width=1,line_dash="dot",row=row,col=1)
         elif ind=="KDJ":
@@ -1085,32 +1161,63 @@ def build_kline_chart(df, symbol, tf, indicators, n_candles):
             fig.add_trace(go.Scatter(x=d['time'],y=K.iloc[-n_candles:],name="K",line=dict(color="#ffd740",width=1.3)),row=row,col=1)
             fig.add_trace(go.Scatter(x=d['time'],y=D.iloc[-n_candles:],name="D",line=dict(color="#ff9800",width=1.3)),row=row,col=1)
             fig.add_trace(go.Scatter(x=d['time'],y=J.iloc[-n_candles:],name="J",line=dict(color="#4af0c4",width=1)),row=row,col=1)
+            for lv,c in [(80,"#ff525233"),(20,"#00e67633")]:
+                fig.add_hline(y=lv,line_color=c,line_width=1,row=row,col=1)
         elif ind=="W%R":
             hn=df['high'].rolling(14).max(); ln=df['low'].rolling(14).min()
             wr=-100*(hn-df['close'])/(hn-ln+1e-9)
-            fig.add_trace(go.Scatter(x=d['time'],y=wr.iloc[-n_candles:],name="W%R",line=dict(color="#ff9800",width=1.3)),row=row,col=1)
+            fig.add_trace(go.Scatter(x=d['time'],y=wr.iloc[-n_candles:],name="W%R",
+                line=dict(color="#ff9800",width=1.3)),row=row,col=1)
+            for lv,c in [(-20,"#ff525233"),(-80,"#00e67633")]:
+                fig.add_hline(y=lv,line_color=c,line_width=1,row=row,col=1)
         elif ind=="CCI":
             tp=(df['high']+df['low']+df['close'])/3; ma=tp.rolling(20).mean()
             mad=tp.rolling(20).apply(lambda x:abs(x-x.mean()).mean())
             cci=(tp-ma)/(0.015*mad+1e-9)
-            fig.add_trace(go.Scatter(x=d['time'],y=cci.iloc[-n_candles:],name="CCI",line=dict(color="#e040fb",width=1.3)),row=row,col=1)
+            fig.add_trace(go.Scatter(x=d['time'],y=cci.iloc[-n_candles:],name="CCI",
+                line=dict(color="#e040fb",width=1.3)),row=row,col=1)
+            for lv,c in [(100,"#ff525233"),(-100,"#00e67633")]:
+                fig.add_hline(y=lv,line_color=c,line_width=1,row=row,col=1)
         elif ind=="ATR":
-            hl=df['high']-df['low']; hc=abs(df['high']-df['close'].shift()); lc=abs(df['low']-df['close'].shift())
-            atr=pd.concat([hl,hc,lc],axis=1).max(axis=1).rolling(14).mean()
-            fig.add_trace(go.Scatter(x=d['time'],y=atr.iloc[-n_candles:],name="ATR",line=dict(color="#4af0c4",width=1.3)),row=row,col=1)
+            hl=df['high']-df['low']; hc2=abs(df['high']-df['close'].shift())
+            lc=abs(df['low']-df['close'].shift())
+            atr=pd.concat([hl,hc2,lc],axis=1).max(axis=1).rolling(14).mean()
+            fig.add_trace(go.Scatter(x=d['time'],y=atr.iloc[-n_candles:],name="ATR",
+                line=dict(color="#4af0c4",width=1.3)),row=row,col=1)
 
     fig.update_layout(
-        paper_bgcolor="#080c14",plot_bgcolor="#0b1220",
-        font=dict(color="#7090b0",size=11),
+        paper_bgcolor="#080c14",
+        plot_bgcolor="#0b1220",
+        font=dict(color="#7090b0",size=11,family="Share Tech Mono"),
         xaxis_rangeslider_visible=False,
+        dragmode="pan",                    # 默认拖拽模式
         legend=dict(orientation="h",y=1.02,x=0,font=dict(size=10),bgcolor="rgba(0,0,0,0)"),
-        margin=dict(l=10,r=10,t=28,b=8),
-        height=680+len(sub_inds)*150,
+        margin=dict(l=10,r=10,t=28,b=40),
+        height=680+len(sub_inds)*160,
         hovermode="x unified",
+        hoverlabel=dict(bgcolor="#0d1e2e",font_color="#c0cce0"),
+        modebar=dict(
+            bgcolor="rgba(0,0,0,0)",
+            color="#ffd740",
+            activecolor="#4af0c4",
+        ),
     )
-    for i in range(1,n_rows+1):
-        fig.update_xaxes(gridcolor="#0d1e2e",row=i,col=1)
-        fig.update_yaxes(gridcolor="#0d1e2e",row=i,col=1)
+    # 时间轴 + 缩放
+    for i in range(1, n_rows+1):
+        fig.update_xaxes(
+            gridcolor="#0d1e2e", row=i, col=1,
+            showgrid=True,
+            showticklabels=True,
+            tickformat="%m/%d\n%H:%M",
+            tickfont=dict(color="#ffd740",size=10),
+            rangeslider_visible=False,
+            fixedrange=False,              # 允许X轴缩放
+        )
+        fig.update_yaxes(
+            gridcolor="#0d1e2e", row=i, col=1,
+            showgrid=True,
+            fixedrange=False,              # 允许Y轴缩放
+        )
     for ann in fig.layout.annotations:
         ann.font.color="#ffd740"; ann.font.size=11
     return fig
