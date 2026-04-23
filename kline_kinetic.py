@@ -101,13 +101,21 @@ def fetch_ohlcv(symbol, tf, limit=300):
 def fetch_realtime_price(symbol):
     try:
         sym = symbol.replace('/','').replace('USDT','-USDT')
-        url = f"{OKX_BASE}/api/v5/market/ticker"
-        r   = requests.get(url, params={"instId":sym}, timeout=6,
-                           headers={"User-Agent":"Mozilla/5.0"})
+        # 优先用标记价格（合约页面显示的价格）
+        url = f"{OKX_BASE}/api/v5/public/mark-price"
+        r   = requests.get(url, params={"instId":sym+"-SWAP","instType":"SWAP"},
+                           timeout=6, headers={"User-Agent":"Mozilla/5.0"})
         r.raise_for_status()
         data = r.json()
         if data.get('code') == '0' and data.get('data'):
-            return float(data['data'][0]['last'])
+            return float(data['data'][0]['markPx'])
+        # 备用：用现货最新成交价
+        url2 = f"{OKX_BASE}/api/v5/market/ticker"
+        r2   = requests.get(url2, params={"instId":sym}, timeout=6,
+                            headers={"User-Agent":"Mozilla/5.0"})
+        data2 = r2.json()
+        if data2.get('code') == '0' and data2.get('data'):
+            return float(data2['data'][0]['last'])
         return None
     except:
         return None
