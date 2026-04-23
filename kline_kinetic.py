@@ -7,7 +7,7 @@ K线动能理论 · 三级别日内合约监控 v2
 """
 
 import time
-import ccxt
+import requests
 import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -66,35 +66,46 @@ html,body,[class*="css"]{background-color:#080c14!important;color:#c0cce0!import
 </style>
 """, unsafe_allow_html=True)
 
-@st.cache_resource
-def init_exchange():
-    return ccxt.binance({'timeout': 15000, 'enableRateLimit': True})
-exchange = init_exchange()
+# ── Binance REST API（不依赖ccxt，更稳定）────────────────────────────────────
+BINANCE_BASE = "https://api.binance.com"
 
-for k in ['pos_short','pos_mid','pos_long']:
-    if k not in st.session_state: st.session_state[k] = None
-for k in ['alert_short','alert_mid','alert_long']:
-    if k not in st.session_state: st.session_state[k] = {"type":None,"time":0}
+TF_MAP = {
+    '5m':'5m','15m':'15m','1h':'1h','4h':'4h','1d':'1d'
+}
 
 # ══════════════════════════════════════════════════════════════════════════════
 # 数据 & 指标
 # ══════════════════════════════════════════════════════════════════════════════
 def fetch_ohlcv(symbol, tf, limit=300):
     try:
-        raw = exchange.fetch_ohlcv(symbol, timeframe=tf, limit=limit)
-        df  = pd.DataFrame(raw, columns=['ts','open','high','low','close','volume'])
-        df['time'] = pd.to_datetime(df['ts'], unit='ms')
-        return df
-    except:
+        sym = symbol.replace('/','')
+        url = f"{BINANCE_BASE}/api/v3/klines"
+        r   = requests.get(url, params={"symbol":sym,"interval":TF_MAP[tf],"limit":limit}, timeout=10)
+        raw = r.json()
+        df  = pd.DataFrame(raw, columns=['ts','open','high','low','close','volume',
+                                          'close_time','quote_vol','trades','taker_base',
+                                          'taker_quote','ignore'])
+        df['time']  = pd.to_datetime(df['ts'].astype(float), unit='ms')
+        for c in ['open','high','low','close','volume']:
+            df[c] = df[c].astype(float)
+        return df[['time','open','high','low','close','volume']]
+    except Exception as e:
         return pd.DataFrame()
 
 def fetch_realtime_price(symbol):
-    """取实时Ticker价格，比K线收盘价更准确"""
+    """取实时Ticker价格"""
     try:
-        ticker = exchange.fetch_ticker(symbol)
-        return float(ticker['last'])
+        sym = symbol.replace('/','')
+        url = f"{BINANCE_BASE}/api/v3/ticker/price"
+        r   = requests.get(url, params={"symbol":sym}, timeout=5)
+        return float(r.json()['price'])
     except:
         return None
+
+for k in ['pos_short','pos_mid','pos_long']:
+    if k not in st.session_state: st.session_state[k] = None
+for k in ['alert_short','alert_mid','alert_long']:
+    if k not in st.session_state: st.session_state[k] = {"type":None,"time":0}
 
 def calc_ind(df):
     if df.empty: return df
