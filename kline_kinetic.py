@@ -66,59 +66,51 @@ html,body,[class*="css"]{background-color:#080c14!important;color:#c0cce0!import
 </style>
 """, unsafe_allow_html=True)
 
-# ── Binance REST API ─────────────────────────────────────────────────────────
-# 多个备用域名，任何一个成功就返回
-BINANCE_HOSTS = [
-    "https://api.binance.com",
-    "https://api1.binance.com",
-    "https://api2.binance.com",
-    "https://api3.binance.com",
-]
+# ── OKX REST API ─────────────────────────────────────────────────────────────
+OKX_BASE = "https://www.okx.com"
 
-TF_MAP = {'5m':'5m','15m':'15m','1h':'1h','4h':'4h','1d':'1d'}
+TF_MAP = {'5m':'5m','15m':'15m','1h':'1H','4h':'4H','1d':'1D'}
 
 # ══════════════════════════════════════════════════════════════════════════════
 # 数据 & 指标
 # ══════════════════════════════════════════════════════════════════════════════
 def fetch_ohlcv(symbol, tf, limit=300):
-    sym = symbol.replace('/','')
-    last_err = ""
-    for host in BINANCE_HOSTS:
-        try:
-            url = f"{host}/api/v3/klines"
-            r   = requests.get(url,
-                    params={"symbol":sym,"interval":TF_MAP[tf],"limit":limit},
-                    timeout=12, headers={"User-Agent":"Mozilla/5.0"})
-            r.raise_for_status()
-            raw = r.json()
-            if not isinstance(raw, list) or len(raw) == 0:
-                last_err = f"空数据: {raw}"
-                continue
-            df = pd.DataFrame(raw, columns=['ts','open','high','low','close','volume',
-                                            'close_time','quote_vol','trades',
-                                            'taker_base','taker_quote','ignore'])
-            df['time'] = pd.to_datetime(df['ts'].astype(float), unit='ms')
-            for c in ['open','high','low','close','volume']:
-                df[c] = df[c].astype(float)
-            return df[['time','open','high','low','close','volume']]
-        except Exception as e:
-            last_err = str(e)
-            continue
-    st.error(f"K线获取失败({sym} {tf}): {last_err}")
-    return pd.DataFrame()
+    try:
+        # OKX 格式: BTC-USDT
+        sym = symbol.replace('/','').replace('USDT','-USDT')
+        url = f"{OKX_BASE}/api/v5/market/candles"
+        r   = requests.get(url,
+                params={"instId":sym,"bar":TF_MAP[tf],"limit":min(limit,300)},
+                timeout=12, headers={"User-Agent":"Mozilla/5.0"})
+        r.raise_for_status()
+        data = r.json()
+        if data.get('code') != '0' or not data.get('data'):
+            st.error(f"OKX返回错误({sym} {tf}): {data.get('msg','未知错误')}")
+            return pd.DataFrame()
+        # OKX返回顺序是最新在前，需要翻转
+        rows = data['data'][::-1]
+        df = pd.DataFrame(rows, columns=['ts','open','high','low','close','volume','volCcy','volCcyQuote','confirm'])
+        df['time'] = pd.to_datetime(df['ts'].astype(float), unit='ms')
+        for c in ['open','high','low','close','volume']:
+            df[c] = df[c].astype(float)
+        return df[['time','open','high','low','close','volume']]
+    except Exception as e:
+        st.error(f"K线获取失败({symbol} {tf}): {e}")
+        return pd.DataFrame()
 
 def fetch_realtime_price(symbol):
-    sym = symbol.replace('/','')
-    for host in BINANCE_HOSTS:
-        try:
-            url = f"{host}/api/v3/ticker/price"
-            r   = requests.get(url, params={"symbol":sym}, timeout=6,
-                               headers={"User-Agent":"Mozilla/5.0"})
-            r.raise_for_status()
-            return float(r.json()['price'])
-        except:
-            continue
-    return None
+    try:
+        sym = symbol.replace('/','').replace('USDT','-USDT')
+        url = f"{OKX_BASE}/api/v5/market/ticker"
+        r   = requests.get(url, params={"instId":sym}, timeout=6,
+                           headers={"User-Agent":"Mozilla/5.0"})
+        r.raise_for_status()
+        data = r.json()
+        if data.get('code') == '0' and data.get('data'):
+            return float(data['data'][0]['last'])
+        return None
+    except:
+        return None
 
 for k in ['pos_short','pos_mid','pos_long']:
     if k not in st.session_state: st.session_state[k] = None
