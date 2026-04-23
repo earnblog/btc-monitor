@@ -32,11 +32,11 @@ html,body,[class*="css"]{background-color:#080c14!important;color:#c0cce0!import
 .sig-price{font-family:'Share Tech Mono',monospace;font-size:1.4rem;font-weight:700;color:#fff;}
 .sig-title{font-family:'Share Tech Mono',monospace;font-size:1.1rem;font-weight:700;margin-top:4px;}
 .sig-sub{font-size:.75rem;margin-top:4px;line-height:1.5;}
-.sig-time{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:#3a5a7a;margin-top:6px;}
+.sig-time{font-family:'Share Tech Mono',monospace;font-size:.75rem;color:#ffd740;margin-top:6px;}
 .cond-wrap{background:#0b1828;border:1px solid #0e2035;border-radius:6px;padding:10px 14px;margin-bottom:6px;}
-.cond-title{font-size:.62rem;letter-spacing:.15em;color:#3a5a7a;text-transform:uppercase;margin-bottom:5px;}
+.cond-title{font-size:.75rem;letter-spacing:.15em;color:#ffd740;text-transform:uppercase;margin-bottom:5px;}
 .cond-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;}
-.cond-label{font-size:.73rem;color:#4a6a8a;}
+.cond-label{font-size:.85rem;color:#ffd740;}
 .cond-val{font-family:'Share Tech Mono',monospace;font-size:.82rem;}
 .green{color:#00e676;} .red{color:#ff5252;} .yellow{color:#ffca28;} .gray{color:#5a7a9a;} .cyan{color:#4af0c4;}
 .alert-buy{background:#091e12;border:1px solid #00e676;border-left:4px solid #00e676;border-radius:6px;padding:12px 16px;margin-bottom:6px;}
@@ -48,9 +48,9 @@ html,body,[class*="css"]{background-color:#080c14!important;color:#c0cce0!import
 .alert-label{font-family:'Share Tech Mono',monospace;font-size:.68rem;margin-bottom:5px;}
 .alert-body{font-size:.82rem;line-height:1.8;white-space:pre-line;}
 .pos-card{background:#0a1e14;border:1px solid #1a4030;border-radius:6px;padding:10px 14px;margin-bottom:6px;}
-.pos-title{font-size:.62rem;letter-spacing:.15em;color:#2a7a4a;text-transform:uppercase;margin-bottom:6px;}
+.pos-title{font-size:.75rem;letter-spacing:.15em;color:#ffd740;text-transform:uppercase;margin-bottom:6px;}
 .pos-row{display:flex;justify-content:space-between;margin-bottom:3px;}
-.pos-label{font-size:.73rem;color:#4a8a6a;}
+.pos-label{font-size:.85rem;color:#ffd740;}
 .pos-val{font-family:'Share Tech Mono',monospace;font-size:.82rem;color:#00e676;}
 .pnl-pos{font-family:'Share Tech Mono',monospace;font-size:1rem;color:#00e676;font-weight:700;}
 .pnl-neg{font-family:'Share Tech Mono',monospace;font-size:1rem;color:#ff5252;font-weight:700;}
@@ -60,7 +60,7 @@ html,body,[class*="css"]{background-color:#080c14!important;color:#c0cce0!import
 .badge-upgrade{background:#1a1000;color:#ffd740;border:1px solid #ffd74044;}
 .badge-hidden{background:#1a0a00;color:#ff9800;border:1px solid #ff980044;}
 .badge-blocked{background:#1a1a1a;color:#5a5a5a;border:1px solid #3a3a3a44;}
-.timestamp{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:#2a4a6a;}
+.timestamp{font-family:'Share Tech Mono',monospace;font-size:.75rem;color:#ffd740;}
 @keyframes flash{0%,100%{opacity:1}50%{opacity:.3}}
 .flashing{animation:flash .7s ease-in-out 6;}
 </style>
@@ -737,19 +737,19 @@ def main():
                 display:flex;align-items:center;justify-content:space-between">
         <div style="display:flex;align-items:center;gap:20px">
             <div>
-                <div style="font-size:.62rem;color:#3a5a7a;letter-spacing:.12em">实时价格 (2s)</div>
+                <div style="font-size:.75rem;color:#ffd740;letter-spacing:.12em;margin-bottom:6px">实时价格 (2s)</div>
                 <div style="font-family:'Share Tech Mono',monospace;font-size:1.6rem;
                             font-weight:700;color:{price_color}">${price_display:,.1f}</div>
             </div>
             <div style="width:1px;height:40px;background:#0e2035"></div>
             <div>
-                <div style="font-size:.62rem;color:#3a5a7a;letter-spacing:.12em">4H大方向过滤</div>
+                <div style="font-size:.75rem;color:#ffd740;letter-spacing:.12em">4H大方向过滤</div>
                 <div style="font-family:'Share Tech Mono',monospace;font-size:.9rem;
                             color:{h4_c};font-weight:700">{h4_t}</div>
             </div>
         </div>
         <div style="text-align:right">
-            <div style="font-size:.62rem;color:#3a5a7a;letter-spacing:.12em">指标下次更新</div>
+            <div style="font-size:.75rem;color:#ffd740;letter-spacing:.12em">指标下次更新</div>
             <div style="font-family:'Share Tech Mono',monospace;font-size:1rem;color:#4af0c4">{kline_countdown}s</div>
             <div style="font-family:'Share Tech Mono',monospace;font-size:.65rem;color:#2a4a6a">{now_str}</div>
         </div>
