@@ -308,6 +308,56 @@ def divergence(df, lb=25):
         return {"type":"BEAR","detail":"顶背离 → 卖点加强"}
     return {"type":"NONE","detail":""}
 
+def detect_high_short(df, div_r, hidden_r):
+    """
+    高位做空检测
+    条件: DIF在零轴上方高位(>40%) + 顶背离 或 隐形形态 + DIF开始下行
+    返回: is_high_short(bool), strength(1/2/3), detail
+    """
+    if df.empty or len(df) < 30:
+        return {"is_high_short":False,"strength":0,"detail":""}
+
+    dif      = float(df['dif'].iloc[-1])
+    dif_prev = float(df['dif'].iloc[-3])
+    dif_max  = float(df['dif'].abs().rolling(80).max().iloc[-1])
+    prox     = abs(dif) / (dif_max + 1e-9)
+    above    = dif > 0
+    falling  = dif < dif_prev   # DIF正在下行
+
+    # 必须在零轴上方高位
+    if not above or prox < 0.40:
+        return {"is_high_short":False,"strength":0,"detail":""}
+
+    # DIF必须开始下行
+    if not falling:
+        return {"is_high_short":False,"strength":0,"detail":""}
+
+    strength = 0
+    signals  = []
+
+    # 顶背离（最强信号）
+    if div_r['type'] == "BEAR":
+        strength += 2
+        signals.append("顶背离")
+
+    # 高位隐形形态
+    if hidden_r['is_hidden'] and hidden_r['htype'] == "top":
+        strength += 2
+        signals.append("高位隐形")
+
+    # DIF高位死叉（DIF下穿DEA）
+    dea_now  = float(df['dea'].iloc[-1])
+    dea_prev = float(df['dea'].iloc[-3])
+    if dif < dea_now and dif_prev > dea_prev:
+        strength += 1
+        signals.append("高位死叉")
+
+    if strength == 0:
+        return {"is_high_short":False,"strength":0,"detail":""}
+
+    detail = f"高位做空: DIF高位({prox*100:.0f}%)下行 | " + " + ".join(signals)
+    return {"is_high_short":True,"strength":strength,"detail":detail,"prox":round(prox,3)}
+
 # ══════════════════════════════════════════════════════════════════════════════
 # 大级别方向过滤
 # ══════════════════════════════════════════════════════════════════════════════
@@ -335,7 +385,8 @@ def is_signal_allowed(sig_direction, h4_direction):
 # 信号生成（含过滤）
 # ══════════════════════════════════════════════════════════════════════════════
 def make_signal(za, entry_df, pos, div_za, div_entry, label,
-                h4_direction, first_r, upgrade_r, hidden_r, realtime_price=None):
+                h4_direction, first_r, upgrade_r, hidden_r,
+                realtime_price=None, za_large=None, div_large=None):
     et      = ema52_touch(entry_df, realtime_price)
     alerts  = []
     sig     = "WAIT"
@@ -349,8 +400,37 @@ def make_signal(za, entry_df, pos, div_za, div_entry, label,
 
     raw_dir = "long" if za['above'] else "short"
 
-    # ── 隐形形态过滤：远离零轴出现隐形，先等待不入场 ──────────────────
-    if hidden_r['is_hidden'] and hidden_r['should_wait']:
+    # ── 高位做空检测（优先判断，不受大级别方向过滤限制）─────────────────
+    hs = detect_high_short(entry_df, div_entry, hidden_r)
+    # 大级别也需要高位做空信号才算确认
+    hs_large = detect_high_short(entry_df, div_za, hidden_r) if za_large else {"is_high_short":False,"strength":0}
+
+    if hs['is_high_short'] and et['touch'] and not et['above']:
+        # 强度1: 单级别高位做空
+        # 强度2+: 多信号叠加，或大级别同时确认
+        total_strength = hs['strength'] + (hs_large['strength'] if hs_large['is_high_short'] else 0)
+
+        if total_strength >= 3:
+            sig,title = "HIGH_SELL","高位做空 ▼▼"
+            sub    = f"高位多信号叠加 强度{total_strength} | {hs['detail']}"
+            color,bg = "#ff1744","#200010"
+            badges.append(("高位强信号","badge-hidden"))
+            msg = f"[{label}] 高位做空!\n{hs['detail']}\n价格: ${et['price']:,.0f}  EMA52压力: ${et['ema52']:,.0f}\n止损: EMA52上方 ${et['ema52']*1.005:,.0f}"
+            alerts.append({"type":"sell","urgency":"urgent","msg":msg})
+        elif total_strength >= 2:
+            sig,title = "HIGH_SELL_PREP","高位做空预备 ▼"
+            sub    = f"{hs['detail']}"
+            color,bg = "#ff5252","#1a0808"
+            badges.append(("高位信号","badge-hidden"))
+            alerts.append({"type":"prep","urgency":"normal",
+                "msg":f"[{label}] 高位做空预备\n{hs['detail']}\nEMA52压力: ${et['ema52']:,.0f}"})
+
+        if sig in ("HIGH_SELL","HIGH_SELL_PREP"):
+            return {"sig":sig,"title":title,"sub":sub,"color":color,"bg":bg,
+                    "alerts":alerts,"et":et,"badges":badges,"blocked":False,"blocked_reason":""}
+
+    # ── 隐形形态等待（非高位做空的隐形） ──────────────────────────────
+    if hidden_r['is_hidden'] and hidden_r['should_wait'] and sig == "WAIT":
         sig    = "HIDDEN_WAIT"
         title  = "隐形等待"
         sub    = hidden_r['detail']
@@ -373,13 +453,12 @@ def make_signal(za, entry_df, pos, div_za, div_entry, label,
         return {"sig":sig,"title":title,"sub":sub,"color":color,"bg":bg,
                 "alerts":[],"et":et,"badges":badges,"blocked":True,"blocked_reason":blocked_reason}
 
-    # ── 信号生成 ──────────────────────────────────────────────────────
+    # ── 归零轴信号 ────────────────────────────────────────────────────
     if za['dir'] == "long" and et['touch'] and et['above']:
         sig,title = "BUY","做多信号 ▲"
         sub    = f"归零轴(上方) + 触EMA52(${et['ema52']:,.0f})"
         color,bg = "#00e676","#091e12"
         msg    = f"[{label}] 做多入场!\n价格: ${et['price']:,.0f}  EMA52: ${et['ema52']:,.0f}\n止损: ${et['ema52']*0.995:,.0f}"
-        # 第一次归零轴加强提示
         if first_r['is_first']:
             msg += "\n★ 第一次归零轴 反弹力度最强!"
             badges.append(("第一次归零","badge-first"))
@@ -719,13 +798,16 @@ def main():
 
     res_long  = make_signal(za_h4,  df_m15, st.session_state.pos_long,
                             div_h4,  div_m15, "长单4H",  h4_dir,
-                            first_h4,  upgrade_h4,  hidden_h4,  price_display)
+                            first_h4,  upgrade_h4,  hidden_h4,  price_display,
+                            za_large=None, div_large=None)
     res_mid   = make_signal(za_h1,  df_m15, st.session_state.pos_mid,
                             div_h1,  div_m15, "中单1H",  h4_dir,
-                            first_h1,  upgrade_h1,  hidden_h1,  price_display)
+                            first_h1,  upgrade_h1,  hidden_h1,  price_display,
+                            za_large=za_h4, div_large=div_h4)
     res_short = make_signal(za_m15, df_m5,  st.session_state.pos_short,
                             div_m15, div_m5,  "短单15m", h4_dir,
-                            first_m15, upgrade_m15, hidden_m15, price_display)
+                            first_m15, upgrade_m15, hidden_m15, price_display,
+                            za_large=za_h1, div_large=div_h1)
 
     # ── 顶部状态栏：实时价格 + 刷新倒计时 ───────────────────────────────
     h4_c = "#00e676" if h4_dir=="bull" else "#ff5252"
