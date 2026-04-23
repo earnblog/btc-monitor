@@ -716,21 +716,17 @@ def main():
     # ── 顶部导航Tab ──────────────────────────────────────────────────────
     tab_monitor, tab_chart = st.tabs(["📡 信号监控", "📊 K线图表"])
 
-    # 用 session state 记录当前在哪个tab
-    if 'active_tab' not in st.session_state:
-        st.session_state.active_tab = 0
-
     tab_monitor, tab_chart = st.tabs(["📡 信号监控", "📊 K线图表"])
 
     with tab_monitor:
         page_monitor()
-        # 监控页面每2秒刷新（价格+信号）
-        time.sleep(2)
-        st.rerun()
 
     with tab_chart:
         page_chart()
-        # K线图表页面不整页刷新，价格由JS驱动
+
+    # 只有监控页面需要刷新
+    time.sleep(2)
+    st.rerun()
 
 
 def page_monitor():
