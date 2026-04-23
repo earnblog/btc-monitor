@@ -967,99 +967,36 @@ def page_chart():
                 macd_sig  = st.number_input("", min_value=2, max_value=50,
                                             value=9,  key="mg", label_visibility="collapsed")
 
-    # ── 实时价格（JS驱动，只刷数字不刷页面）─────────────────────────────
-    df_c = fetch_chart_ohlcv(coin, tf)
+    # ── 实时价格（Python取数，st.empty局部刷新）──────────────────────────
+    df_c        = fetch_chart_ohlcv(coin, tf)
+    price_slot  = st.empty()
 
-    # 先用Python渲染初始价格框架，JS接管后续更新
-    inst_id = f"{coin}-USDT"
-    swap_id = f"{coin}-USDT-SWAP"
-
-    st.markdown(f"""
-    <div class="price-bar" id="price-bar-{coin}">
-        <div>
-            <div style="font-size:.65rem;color:#ffd740;letter-spacing:.1em">{coin}/USDT</div>
-            <div class="price-main" id="px-price" style="color:#4af0c4">加载中...</div>
-        </div>
-        <div class="price-change" id="px-chg" style="color:#4af0c4">--</div>
-        <div style="width:1px;height:36px;background:#0e2035"></div>
-        <div><div class="price-stat">24H高</div><div class="price-val" id="px-high">--</div></div>
-        <div><div class="price-stat">24H低</div><div class="price-val" id="px-low">--</div></div>
-        <div><div class="price-stat">成交量</div><div class="price-val" id="px-vol">--</div></div>
-        <div style="margin-left:auto">
-            <div class="price-stat">更新时间</div>
-            <div style="font-family:'Share Tech Mono',monospace;font-size:.75rem;color:#ffd740" id="px-time">--</div>
-        </div>
-    </div>
-
-    <script>
-    (function() {{
-        var instId  = "{inst_id}";
-        var swapId  = "{swap_id}";
-        var lastPrice = null;
-
-        function fmt(n, dec) {{
-            return parseFloat(n).toLocaleString('en-US', {{
-                minimumFractionDigits: dec,
-                maximumFractionDigits: dec
-            }});
-        }}
-
-        function updatePrice() {{
-            // 取标记价格（合约）
-            fetch('https://www.okx.com/api/v5/public/mark-price?instId=' + swapId + '&instType=SWAP')
-            .then(r => r.json())
-            .then(d => {{
-                if (d.code === '0' && d.data && d.data.length > 0) {{
-                    var markPx = parseFloat(d.data[0].markPx);
-                    var el = document.getElementById('px-price');
-                    if (el) {{
-                        // 价格变化时闪烁
-                        if (lastPrice !== null) {{
-                            el.style.color = markPx > lastPrice ? '#00e676' : markPx < lastPrice ? '#ff5252' : '#4af0c4';
-                        }}
-                        el.textContent = '$' + fmt(markPx, 2);
-                        lastPrice = markPx;
-                    }}
-                }}
-            }}).catch(e => {{}});
-
-            // 取24H行情
-            fetch('https://www.okx.com/api/v5/market/ticker?instId=' + instId)
-            .then(r => r.json())
-            .then(d => {{
-                if (d.code === '0' && d.data && d.data.length > 0) {{
-                    var t    = d.data[0];
-                    var last = parseFloat(t.last);
-                    var open = parseFloat(t.open24h);
-                    var chg  = last - open;
-                    var pct  = (chg / open * 100);
-                    var sign = chg >= 0 ? '+' : '';
-                    var col  = chg >= 0 ? '#00e676' : '#ff5252';
-
-                    var ec = document.getElementById('px-chg');
-                    var eh = document.getElementById('px-high');
-                    var el = document.getElementById('px-low');
-                    var ev = document.getElementById('px-vol');
-                    var et = document.getElementById('px-time');
-
-                    if (ec) {{ ec.textContent = sign + pct.toFixed(2) + '%'; ec.style.color = col; }}
-                    if (eh) el.textContent = '$' + fmt(t.high24h, 2);
-                    if (el) el.textContent = '$' + fmt(t.low24h,  2);
-                    if (ev) ev.textContent = fmt(parseFloat(t.volCcy24h), 0) + ' {coin}';
-                    if (et) {{
-                        var now = new Date();
-                        et.textContent = now.toTimeString().slice(0,8);
-                    }}
-                }}
-            }}).catch(e => {{}});
-        }}
-
-        // 立即执行一次，然后每2秒更新
-        updatePrice();
-        setInterval(updatePrice, 2000);
-    }})();
-    </script>
-    """, unsafe_allow_html=True)
+    ticker = fetch_chart_ticker(coin)
+    if ticker:
+        price   = ticker['price']
+        chg     = price - ticker['open24']
+        chg_pct = chg / ticker['open24'] * 100
+        cc      = "#00e676" if chg >= 0 else "#ff5252"
+        cs      = "+" if chg >= 0 else ""
+        price_slot.markdown(f"""
+        <div class="price-bar">
+            <div>
+                <div style="font-size:.65rem;color:#ffd740;letter-spacing:.1em">{coin}/USDT</div>
+                <div class="price-main" style="color:{cc}">${price:,.2f}</div>
+            </div>
+            <div class="price-change" style="color:{cc}">{cs}{chg_pct:.2f}%</div>
+            <div style="width:1px;height:36px;background:#0e2035"></div>
+            <div><div class="price-stat">24H高</div><div class="price-val">${ticker['high24']:,.2f}</div></div>
+            <div><div class="price-stat">24H低</div><div class="price-val">${ticker['low24']:,.2f}</div></div>
+            <div><div class="price-stat">成交量</div><div class="price-val">{ticker['vol24']:,.0f} {coin}</div></div>
+            <div style="margin-left:auto">
+                <div class="price-stat">更新时间</div>
+                <div style="font-family:'Share Tech Mono',monospace;font-size:.75rem;color:#ffd740">
+                    {datetime.now().strftime('%H:%M:%S')}</div>
+            </div>
+        </div>""", unsafe_allow_html=True)
+    else:
+        price_slot.warning("价格获取失败，请稍候")
 
     if df_c.empty:
         st.error(f"获取 {coin}/USDT {tf} 数据失败")
