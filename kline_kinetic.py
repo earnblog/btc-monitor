@@ -713,6 +713,24 @@ def main():
     st.markdown('<div class="page-title">⚡ K线动能理论 · 三级别日内合约 v2 &nbsp;|&nbsp; 大级别过滤 · 第一次归零 · 级别升级 · 隐形过滤</div>',
                 unsafe_allow_html=True)
 
+    # ── 顶部导航Tab ──────────────────────────────────────────────────────
+    tab_monitor, tab_chart = st.tabs(["📡 信号监控", "📊 K线图表"])
+
+    with tab_monitor:
+        page_monitor()
+
+    with tab_chart:
+        page_chart()
+
+    # 价格每2秒刷新
+    time.sleep(2)
+    st.rerun()
+
+
+def page_monitor():
+    st.markdown('<div class="page-title">⚡ K线动能理论 · 三级别日内合约 v2 &nbsp;|&nbsp; 大级别过滤 · 第一次归零 · 级别升级 · 隐形过滤</div>',
+                unsafe_allow_html=True)
+
     c1,c2,c3,c4,c5 = st.columns([1.2,.7,.7,.7,.7])
     with c1:
         symbol=st.selectbox("",["BTC/USDT","ETH/USDT","SOL/USDT","BNB/USDT"],
@@ -882,8 +900,221 @@ def main():
                         use_container_width=True)
 
     # 价格每2秒刷新，整页每30秒强制刷新一次
-    time.sleep(2)
-    st.rerun()
+    pass  # 刷新由 main() 统一控制
 
-if __name__ == "__main__":
+
+def page_chart():
+    """K线图表页面"""
+    # ── 额外CSS ──────────────────────────────────────────────────────────
+    st.markdown("""
+    <style>
+    .ctrl-label{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:#ffd740;
+                letter-spacing:.1em;margin-bottom:4px;}
+    .price-bar{background:#0b1828;border:1px solid #0e2035;border-radius:6px;
+               padding:8px 16px;margin-bottom:10px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+    .price-main{font-family:'Share Tech Mono',monospace;font-size:1.8rem;font-weight:700;}
+    .price-change{font-family:'Share Tech Mono',monospace;font-size:1rem;}
+    .price-stat{font-size:.75rem;color:#ffd740;}
+    .price-val{font-family:'Share Tech Mono',monospace;font-size:.88rem;color:#e0eeff;}
+    </style>
+    """, unsafe_allow_html=True)
+
+    TF_LIST = ['1m','3m','5m','15m','30m','1H','2H','4H','6H','8H','12H','1D','2D','3D','1W','1M']
+    COINS   = ["BTC","ETH","SOL","BNB","XRP","DOGE","ADA","AVAX","DOT","LINK",
+               "UNI","ATOM","LTC","BCH","FIL","APT","ARB","OP","INJ","TIA"]
+
+    # ── 控制栏 ────────────────────────────────────────────────────────────
+    c1,c2,c3,c4,c5 = st.columns([1,1,1.2,2.5,0.8])
+    with c1:
+        st.markdown('<div class="ctrl-label">币种</div>', unsafe_allow_html=True)
+        coin = st.selectbox("_coin", COINS, index=0, label_visibility="collapsed")
+    with c2:
+        st.markdown('<div class="ctrl-label">时间周期</div>', unsafe_allow_html=True)
+        tf = st.selectbox("_tf", TF_LIST, index=7, label_visibility="collapsed")
+    with c3:
+        st.markdown('<div class="ctrl-label">K线数量</div>', unsafe_allow_html=True)
+        n_candles = st.select_slider("_nc", options=[50,100,150,200,300],
+                                     value=150, label_visibility="collapsed")
+    with c4:
+        st.markdown('<div class="ctrl-label">叠加指标（可多选）</div>', unsafe_allow_html=True)
+        all_inds = ["EMA7","EMA13","EMA24","EMA52","EMA99","EMA200",
+                    "布林带","MACD","RSI","KDJ","W%R","CCI","ATR","成交量"]
+        indicators = st.multiselect("_ind", all_inds,
+                                    default=["EMA52","MACD","成交量"],
+                                    label_visibility="collapsed")
+    with c5:
+        st.markdown('<div class="ctrl-label">&nbsp;</div>', unsafe_allow_html=True)
+        if st.button("🔄", use_container_width=True, key="chart_refresh"):
+            st.cache_data.clear()
+
+    # ── 实时价格 ──────────────────────────────────────────────────────────
+    ticker = fetch_chart_ticker(coin)
+    df_c   = fetch_chart_ohlcv(coin, tf)
+
+    if ticker:
+        price   = ticker['price']
+        chg     = price - ticker['open24']
+        chg_pct = chg / ticker['open24'] * 100
+        cc      = "#00e676" if chg >= 0 else "#ff5252"
+        cs      = "+" if chg >= 0 else ""
+        st.markdown(f"""
+        <div class="price-bar">
+            <div>
+                <div style="font-size:.65rem;color:#ffd740;letter-spacing:.1em">{coin}/USDT</div>
+                <div class="price-main" style="color:{cc}">${price:,.2f}</div>
+            </div>
+            <div class="price-change" style="color:{cc}">{cs}{chg_pct:.2f}%</div>
+            <div style="width:1px;height:36px;background:#0e2035"></div>
+            <div><div class="price-stat">24H高</div><div class="price-val">${ticker['high24']:,.2f}</div></div>
+            <div><div class="price-stat">24H低</div><div class="price-val">${ticker['low24']:,.2f}</div></div>
+            <div><div class="price-stat">成交量</div><div class="price-val">{ticker['vol24']:,.0f} {coin}</div></div>
+        </div>""", unsafe_allow_html=True)
+
+    if df_c.empty:
+        st.error(f"获取 {coin}/USDT {tf} 数据失败")
+        return
+
+    st.plotly_chart(build_kline_chart(df_c, coin, tf, indicators, n_candles),
+                    use_container_width=True)
+    st.markdown(f'<div style="font-family:\'Share Tech Mono\',monospace;font-size:.68rem;color:#ffd740;text-align:right">数据来源: OKX · {len(df_c)}根K线</div>',
+                unsafe_allow_html=True)
+
+
+# ── K线图表专用数据函数 ────────────────────────────────────────────────────────
+@st.cache_data(ttl=15)
+def fetch_chart_ohlcv(symbol, tf):
+    try:
+        inst = f"{symbol}-USDT"
+        url  = f"https://www.okx.com/api/v5/market/candles"
+        r    = requests.get(url, params={"instId":inst,"bar":tf,"limit":300},
+                            timeout=12, headers={"User-Agent":"Mozilla/5.0"})
+        data = r.json()
+        if data.get('code') != '0' or not data.get('data'):
+            return pd.DataFrame()
+        rows = data['data'][::-1]
+        df = pd.DataFrame(rows, columns=['ts','open','high','low','close','volume',
+                                          'volCcy','volCcyQuote','confirm'])
+        df['time'] = pd.to_datetime(df['ts'].astype(float), unit='ms')
+        for c in ['open','high','low','close','volume']:
+            df[c] = df[c].astype(float)
+        return df[['time','open','high','low','close','volume']]
+    except:
+        return pd.DataFrame()
+
+@st.cache_data(ttl=3)
+def fetch_chart_ticker(symbol):
+    try:
+        url  = f"https://www.okx.com/api/v5/public/mark-price"
+        r    = requests.get(url,
+                params={"instId":f"{symbol}-USDT-SWAP","instType":"SWAP"},
+                timeout=5, headers={"User-Agent":"Mozilla/5.0"})
+        data = r.json()
+        mark = float(data['data'][0]['markPx']) if data.get('code')=='0' and data.get('data') else None
+        url2 = f"https://www.okx.com/api/v5/market/ticker"
+        r2   = requests.get(url2, params={"instId":f"{symbol}-USDT"},
+                            timeout=5, headers={"User-Agent":"Mozilla/5.0"})
+        d2 = r2.json()
+        if d2.get('code')=='0' and d2.get('data'):
+            t = d2['data'][0]
+            return {"price":mark or float(t['last']),
+                    "open24":float(t.get('open24h',t['last'])),
+                    "high24":float(t.get('high24h',t['last'])),
+                    "low24": float(t.get('low24h', t['last'])),
+                    "vol24": float(t.get('volCcy24h',0))}
+        return None
+    except:
+        return None
+
+def build_kline_chart(df, symbol, tf, indicators, n_candles):
+    if df.empty: return go.Figure()
+    d = df.iloc[-n_candles:].copy()
+    sub_inds = [i for i in indicators if i in ("MACD","RSI","KDJ","W%R","CCI","ATR","成交量")]
+    n_rows   = 1 + len(sub_inds)
+    heights  = [0.55] + [round(0.45/max(len(sub_inds),1),3)]*len(sub_inds) if sub_inds else [1.0]
+    fig = make_subplots(rows=n_rows, cols=1, shared_xaxes=True,
+                        row_heights=heights, vertical_spacing=0.03,
+                        subplot_titles=[f"{symbol}/USDT {tf}"]+sub_inds)
+    fig.add_trace(go.Candlestick(
+        x=d['time'],open=d['open'],high=d['high'],low=d['low'],close=d['close'],
+        name="K线",increasing_fillcolor="#00c853",increasing_line_color="#00c853",
+        decreasing_fillcolor="#d50000",decreasing_line_color="#d50000",line_width=1),row=1,col=1)
+
+    ema_cfg = {"EMA7":("#ff9800",7,1.2),"EMA13":("#e040fb",13,1.2),
+               "EMA24":("#aa44ff",24,1.5),"EMA52":("#00e676",52,2.0),
+               "EMA99":("#4af0c4",99,1.5),"EMA200":("#ffd740",200,1.5)}
+    for name,(color,span,width) in ema_cfg.items():
+        if name in indicators:
+            ema = df['close'].ewm(span=span,adjust=False).mean()
+            fig.add_trace(go.Scatter(x=d['time'],y=ema.iloc[-n_candles:],name=name,
+                line=dict(color=color,width=width),opacity=0.85),row=1,col=1)
+
+    if "布林带" in indicators:
+        mid = df['close'].rolling(20).mean(); std = df['close'].rolling(20).std()
+        upper,lower = mid+2*std, mid-2*std
+        fig.add_trace(go.Scatter(x=d['time'],y=upper.iloc[-n_candles:],name="BB上",
+            line=dict(color="#4af0c4",width=1,dash="dot"),opacity=0.6),row=1,col=1)
+        fig.add_trace(go.Scatter(x=d['time'],y=mid.iloc[-n_candles:],name="BB中",
+            line=dict(color="#888",width=1,dash="dot"),opacity=0.4),row=1,col=1)
+        fig.add_trace(go.Scatter(x=d['time'],y=lower.iloc[-n_candles:],name="BB下",
+            line=dict(color="#4af0c4",width=1,dash="dot"),opacity=0.6,
+            fill='tonexty',fillcolor="rgba(74,240,196,0.04)"),row=1,col=1)
+
+    for idx,ind in enumerate(sub_inds):
+        row = idx+2
+        if ind=="成交量":
+            vc=["#00c853" if c>=o else "#d50000" for c,o in zip(d['close'],d['open'])]
+            fig.add_trace(go.Bar(x=d['time'],y=d['volume'],name="成交量",marker_color=vc,opacity=0.7),row=row,col=1)
+        elif ind=="MACD":
+            dif=df['close'].ewm(span=12,adjust=False).mean()-df['close'].ewm(span=26,adjust=False).mean()
+            dea=dif.ewm(span=9,adjust=False).mean(); hist=(dif-dea)*2
+            hc=["#00c853" if v>=0 else "#d50000" for v in hist.iloc[-n_candles:]]
+            fig.add_trace(go.Bar(x=d['time'],y=hist.iloc[-n_candles:],name="MACD柱",marker_color=hc,opacity=0.75),row=row,col=1)
+            fig.add_trace(go.Scatter(x=d['time'],y=dif.iloc[-n_candles:],name="DIF",line=dict(color="#e8f0ff",width=1.5)),row=row,col=1)
+            fig.add_trace(go.Scatter(x=d['time'],y=dea.iloc[-n_candles:],name="DEA",line=dict(color="#ffd740",width=1.2)),row=row,col=1)
+            fig.add_hline(y=0,line_color="#2a4a6a",line_width=1,row=row,col=1)
+        elif ind=="RSI":
+            delta=df['close'].diff(); gain=delta.clip(lower=0).rolling(14).mean()
+            loss=(-delta.clip(upper=0)).rolling(14).mean(); rsi=100-(100/(1+gain/loss))
+            fig.add_trace(go.Scatter(x=d['time'],y=rsi.iloc[-n_candles:],name="RSI",line=dict(color="#aa88ff",width=1.5)),row=row,col=1)
+            for lv,c in [(70,"#ff525244"),(50,"#ffffff22"),(30,"#00e67644")]:
+                fig.add_hline(y=lv,line_color=c,line_width=1,line_dash="dot",row=row,col=1)
+        elif ind=="KDJ":
+            ln=df['low'].rolling(9).min(); hn=df['high'].rolling(9).max()
+            rsv=(df['close']-ln)/(hn-ln+1e-9)*100
+            K=rsv.ewm(com=2,adjust=False).mean(); D=K.ewm(com=2,adjust=False).mean(); J=3*K-2*D
+            fig.add_trace(go.Scatter(x=d['time'],y=K.iloc[-n_candles:],name="K",line=dict(color="#ffd740",width=1.3)),row=row,col=1)
+            fig.add_trace(go.Scatter(x=d['time'],y=D.iloc[-n_candles:],name="D",line=dict(color="#ff9800",width=1.3)),row=row,col=1)
+            fig.add_trace(go.Scatter(x=d['time'],y=J.iloc[-n_candles:],name="J",line=dict(color="#4af0c4",width=1)),row=row,col=1)
+        elif ind=="W%R":
+            hn=df['high'].rolling(14).max(); ln=df['low'].rolling(14).min()
+            wr=-100*(hn-df['close'])/(hn-ln+1e-9)
+            fig.add_trace(go.Scatter(x=d['time'],y=wr.iloc[-n_candles:],name="W%R",line=dict(color="#ff9800",width=1.3)),row=row,col=1)
+        elif ind=="CCI":
+            tp=(df['high']+df['low']+df['close'])/3; ma=tp.rolling(20).mean()
+            mad=tp.rolling(20).apply(lambda x:abs(x-x.mean()).mean())
+            cci=(tp-ma)/(0.015*mad+1e-9)
+            fig.add_trace(go.Scatter(x=d['time'],y=cci.iloc[-n_candles:],name="CCI",line=dict(color="#e040fb",width=1.3)),row=row,col=1)
+        elif ind=="ATR":
+            hl=df['high']-df['low']; hc=abs(df['high']-df['close'].shift()); lc=abs(df['low']-df['close'].shift())
+            atr=pd.concat([hl,hc,lc],axis=1).max(axis=1).rolling(14).mean()
+            fig.add_trace(go.Scatter(x=d['time'],y=atr.iloc[-n_candles:],name="ATR",line=dict(color="#4af0c4",width=1.3)),row=row,col=1)
+
+    fig.update_layout(
+        paper_bgcolor="#080c14",plot_bgcolor="#0b1220",
+        font=dict(color="#7090b0",size=11),
+        xaxis_rangeslider_visible=False,
+        legend=dict(orientation="h",y=1.02,x=0,font=dict(size=10),bgcolor="rgba(0,0,0,0)"),
+        margin=dict(l=10,r=10,t=28,b=8),
+        height=680+len(sub_inds)*150,
+        hovermode="x unified",
+    )
+    for i in range(1,n_rows+1):
+        fig.update_xaxes(gridcolor="#0d1e2e",row=i,col=1)
+        fig.update_yaxes(gridcolor="#0d1e2e",row=i,col=1)
+    for ann in fig.layout.annotations:
+        ann.font.color="#ffd740"; ann.font.size=11
+    return fig
+
+
+if __name__ == '__main__':
     main()
