@@ -634,89 +634,131 @@ def main():
     st.markdown('<div class="page-title">⚡ K线动能理论 · 三级别日内合约 v2 &nbsp;|&nbsp; 大级别过滤 · 第一次归零 · 级别升级 · 隐形过滤</div>',
                 unsafe_allow_html=True)
 
-    c1,c2,c3,c4,c5,c6 = st.columns([1.2,.7,.7,.7,.7,.7])
+    c1,c2,c3,c4,c5 = st.columns([1.2,.7,.7,.7,.7])
     with c1:
         symbol=st.selectbox("",["BTC/USDT","ETH/USDT","SOL/USDT","BNB/USDT"],
                             index=0,label_visibility="collapsed")
     with c2:
-        refresh=st.number_input("",10,300,20,5,label_visibility="collapsed")
+        st.markdown("<div style='height:4px'></div>",unsafe_allow_html=True)
+        if st.button("🔄 刷新指标"): 
+            st.session_state.last_kline_refresh = 0
+            st.rerun()
     with c3:
         st.markdown("<div style='height:4px'></div>",unsafe_allow_html=True)
-        if st.button("🔄 刷新"): st.rerun()
+        if st.button("❌ 清短单"): st.session_state.pos_short=None
     with c4:
         st.markdown("<div style='height:4px'></div>",unsafe_allow_html=True)
-        if st.button("❌ 清短单"): st.session_state.pos_short=None
-    with c5:
-        st.markdown("<div style='height:4px'></div>",unsafe_allow_html=True)
         if st.button("❌ 清中单"): st.session_state.pos_mid=None
-    with c6:
+    with c5:
         st.markdown("<div style='height:4px'></div>",unsafe_allow_html=True)
         if st.button("❌ 清长单"): st.session_state.pos_long=None
 
-    now_str = datetime.now().strftime("%H:%M:%S")
+    now_str  = datetime.now().strftime("%H:%M:%S")
+    now_ts   = time.time()
 
-    with st.spinner("加载数据..."):
-        df_h4    = calc_ind(fetch_ohlcv(symbol,'4h', 300))
-        df_h1    = calc_ind(fetch_ohlcv(symbol,'1h', 300))
-        df_m15   = calc_ind(fetch_ohlcv(symbol,'15m',300))
-        df_m5    = calc_ind(fetch_ohlcv(symbol,'5m', 300))
-        realtime = fetch_realtime_price(symbol)   # 实时价格
+    # ── 实时价格：每2秒更新 ───────────────────────────────────────────────
+    realtime = fetch_realtime_price(symbol)
+    price_display = realtime if realtime else 0.0
 
-    if df_h4.empty or df_m15.empty:
-        st.error("数据获取失败"); time.sleep(10); st.rerun(); return
+    # ── K线指标：每30秒更新，用session state缓存 ─────────────────────────
+    KLINE_INTERVAL = 30
+    need_kline_refresh = (
+        'last_kline_refresh' not in st.session_state or
+        'kline_cache' not in st.session_state or
+        st.session_state.get('kline_symbol') != symbol or
+        now_ts - st.session_state.get('last_kline_refresh', 0) > KLINE_INTERVAL
+    )
 
-    # 各级别归零轴
+    if need_kline_refresh:
+        with st.spinner("更新指标数据..."):
+            df_h4  = calc_ind(fetch_ohlcv(symbol,'4h', 300))
+            df_h1  = calc_ind(fetch_ohlcv(symbol,'1h', 300))
+            df_m15 = calc_ind(fetch_ohlcv(symbol,'15m',300))
+            df_m5  = calc_ind(fetch_ohlcv(symbol,'5m', 300))
+            df_1d  = calc_ind(fetch_ohlcv(symbol,'1d', 100))
+        if df_h4.empty or df_m15.empty:
+            st.error("K线数据获取失败，请稍候重试")
+            time.sleep(5); st.rerun(); return
+        st.session_state.kline_cache = {
+            'df_h4':df_h4,'df_h1':df_h1,'df_m15':df_m15,
+            'df_m5':df_m5,'df_1d':df_1d
+        }
+        st.session_state.last_kline_refresh = now_ts
+        st.session_state.kline_symbol = symbol
+    else:
+        cache  = st.session_state.kline_cache
+        df_h4  = cache['df_h4']
+        df_h1  = cache['df_h1']
+        df_m15 = cache['df_m15']
+        df_m5  = cache['df_m5']
+        df_1d  = cache['df_1d']
+
+    # 下次K线刷新倒计时
+    elapsed      = now_ts - st.session_state.get('last_kline_refresh', now_ts)
+    kline_countdown = max(0, int(KLINE_INTERVAL - elapsed))
+
+    # ── 分析计算 ──────────────────────────────────────────────────────────
     za_h4  = zero_axis(df_h4)
     za_h1  = zero_axis(df_h1)
     za_m15 = zero_axis(df_m15)
-
-    # 大级别方向
     h4_dir = get_h4_direction(za_h4)
 
-    # 第一次归零轴检测
-    first_h1  = detect_first_zero(df_h1)
-    first_m15 = detect_first_zero(df_m15)
-    first_h4  = detect_first_zero(df_h4)
-
-    # 级别升级检测
+    first_h1    = detect_first_zero(df_h1)
+    first_m15   = detect_first_zero(df_m15)
+    first_h4    = detect_first_zero(df_h4)
     upgrade_h1  = detect_level_upgrade(df_h1,  df_h4)
     upgrade_m15 = detect_level_upgrade(df_m15, df_h1)
-    upgrade_h4  = detect_level_upgrade(df_h4,  calc_ind(fetch_ohlcv(symbol,'1d',100)))
+    upgrade_h4  = detect_level_upgrade(df_h4,  df_1d)
+    hidden_h1   = detect_hidden(df_h1)
+    hidden_m15  = detect_hidden(df_m15)
+    hidden_h4   = detect_hidden(df_h4)
+    div_h4      = divergence(df_h4,  30)
+    div_h1      = divergence(df_h1,  30)
+    div_m15     = divergence(df_m15, 25)
+    div_m5      = divergence(df_m5,  20)
 
-    # 隐形形态
-    hidden_h1  = detect_hidden(df_h1)
-    hidden_m15 = detect_hidden(df_m15)
-    hidden_h4  = detect_hidden(df_h4)
-
-    # 背离
-    div_h4  = divergence(df_h4,  30)
-    div_h1  = divergence(df_h1,  30)
-    div_m15 = divergence(df_m15, 25)
-    div_m5  = divergence(df_m5,  20)
-
-    # 三级别信号
     res_long  = make_signal(za_h4,  df_m15, st.session_state.pos_long,
-                            div_h4,  div_m15, "长单4H",  h4_dir, first_h4,  upgrade_h4,  hidden_h4,  realtime)
+                            div_h4,  div_m15, "长单4H",  h4_dir,
+                            first_h4,  upgrade_h4,  hidden_h4,  price_display)
     res_mid   = make_signal(za_h1,  df_m15, st.session_state.pos_mid,
-                            div_h1,  div_m15, "中单1H",  h4_dir, first_h1,  upgrade_h1,  hidden_h1,  realtime)
+                            div_h1,  div_m15, "中单1H",  h4_dir,
+                            first_h1,  upgrade_h1,  hidden_h1,  price_display)
     res_short = make_signal(za_m15, df_m5,  st.session_state.pos_short,
-                            div_m15, div_m5,  "短单15m", h4_dir, first_m15, upgrade_m15, hidden_m15, realtime)
+                            div_m15, div_m5,  "短单15m", h4_dir,
+                            first_m15, upgrade_m15, hidden_m15, price_display)
 
-    # 大方向状态栏
+    # ── 顶部状态栏：实时价格 + 刷新倒计时 ───────────────────────────────
     h4_c = "#00e676" if h4_dir=="bull" else "#ff5252"
-    h4_t = "看多 — 只提醒做多信号" if h4_dir=="bull" else "看空 — 只提醒做空信号"
+    h4_t = "看多 — 只提醒做多" if h4_dir=="bull" else "看空 — 只提醒做空"
+    price_color = "#00e676" if realtime else "#5a7a9a"
     st.markdown(f"""
-    <div style="background:#0b1828;border:1px solid {h4_c}33;border-left:4px solid {h4_c};
-                border-radius:6px;padding:10px 16px;margin-bottom:12px;display:flex;align-items:center;gap:16px">
-        <span style="font-family:'Share Tech Mono',monospace;font-size:.7rem;color:#3a5a7a;letter-spacing:.15em">4H大方向过滤</span>
-        <span style="font-family:'Share Tech Mono',monospace;font-size:.95rem;color:{h4_c};font-weight:700">{h4_t}</span>
-        <span style="font-size:.75rem;color:#3a6a5a">DIF={za_h4['dif']:.4f} · 距零轴{za_h4['prox']*100:.0f}%</span>
+    <div style="background:#0b1828;border:1px solid #0e2035;border-radius:6px;
+                padding:10px 18px;margin-bottom:12px;
+                display:flex;align-items:center;justify-content:space-between">
+        <div style="display:flex;align-items:center;gap:20px">
+            <div>
+                <div style="font-size:.62rem;color:#3a5a7a;letter-spacing:.12em">实时价格 (2s)</div>
+                <div style="font-family:'Share Tech Mono',monospace;font-size:1.6rem;
+                            font-weight:700;color:{price_color}">${price_display:,.1f}</div>
+            </div>
+            <div style="width:1px;height:40px;background:#0e2035"></div>
+            <div>
+                <div style="font-size:.62rem;color:#3a5a7a;letter-spacing:.12em">4H大方向过滤</div>
+                <div style="font-family:'Share Tech Mono',monospace;font-size:.9rem;
+                            color:{h4_c};font-weight:700">{h4_t}</div>
+            </div>
+        </div>
+        <div style="text-align:right">
+            <div style="font-size:.62rem;color:#3a5a7a;letter-spacing:.12em">指标下次更新</div>
+            <div style="font-family:'Share Tech Mono',monospace;font-size:1rem;color:#4af0c4">{kline_countdown}s</div>
+            <div style="font-family:'Share Tech Mono',monospace;font-size:.65rem;color:#2a4a6a">{now_str}</div>
+        </div>
     </div>""", unsafe_allow_html=True)
 
     # 合力提醒
     non_blocked = [r for r in [res_long,res_mid,res_short] if not r['blocked']]
-    combo_bull = len(non_blocked)>=2 and all("BUY" in r['sig'] for r in non_blocked) and h4_dir=="bull"
-    combo_bear = len(non_blocked)>=2 and all("SELL" in r['sig'] for r in non_blocked) and h4_dir=="bear"
+    combo_bull  = len(non_blocked)>=2 and all("BUY"  in r['sig'] for r in non_blocked) and h4_dir=="bull"
+    combo_bear  = len(non_blocked)>=2 and all("SELL" in r['sig'] for r in non_blocked) and h4_dir=="bear"
     if combo_bull:
         st.markdown(f'<div class="alert-combo flashing"><div class="alert-label" style="color:#ffd740">⚡⚡ 多级别合力做多！{now_str}</div><div class="alert-body" style="color:#ffd740">多个级别同时归零轴看多，且与4H大方向一致 — 高确信度信号</div></div>',unsafe_allow_html=True)
         play_sound("buy","urgent")
@@ -742,8 +784,8 @@ def main():
     # 图表
     st.markdown('<hr style="border:none;border-top:1px solid #0e2035;margin:10px 0">',unsafe_allow_html=True)
     t1,t2,t3,t4 = st.tabs(["📊 4小时","📊 1小时","📊 15分钟","📊 5分钟"])
-    et_m15 = ema52_touch(df_m15, realtime)
-    et_m5  = ema52_touch(df_m5,  realtime)
+    et_m15 = ema52_touch(df_m15, price_display)
+    et_m5  = ema52_touch(df_m5,  price_display)
     with t1:
         st.plotly_chart(build_chart(df_h4,f"4H DIF={za_h4['dif']:.4f} 距零轴{za_h4['prox']*100:.0f}%",
                         st.session_state.pos_long),use_container_width=True)
@@ -757,9 +799,8 @@ def main():
         st.plotly_chart(build_chart(df_m5,f"5m EMA52=${et_m5['ema52']:,.0f}"),
                         use_container_width=True)
 
-    st.markdown(f'<div class="timestamp" style="margin-top:6px;text-align:right">下次刷新: {refresh}s | {now_str}</div>',
-                unsafe_allow_html=True)
-    time.sleep(refresh)
+    # 价格每2秒刷新，整页每30秒强制刷新一次
+    time.sleep(2)
     st.rerun()
 
 if __name__ == "__main__":
