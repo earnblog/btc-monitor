@@ -5,6 +5,16 @@
 """
 import os
 import json
+import numpy as np
+
+class NumpyEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, (np.integer,)): return int(obj)
+        if isinstance(obj, (np.floating,)): return float(obj)
+        if isinstance(obj, (np.bool_,)): return bool(obj)
+        if isinstance(obj, np.ndarray): return obj.tolist()
+        return super().default(obj)
+
 import time
 from datetime import datetime, timezone
 
@@ -194,7 +204,7 @@ def run_monitor():
 
     signals_file = os.path.join(DATA_DIR, 'signals.json')
     with open(signals_file, 'w') as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
+        json.dump(output, f, ensure_ascii=False, indent=2, cls=NumpyEncoder)
 
     # 记录运行时间
     with open(os.path.join(DATA_DIR, 'last_run.txt'), 'w') as f:
