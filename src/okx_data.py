@@ -32,7 +32,12 @@ def get_top_symbols(min_volume_usd=100_000_000, max_count=80):
             if not inst_id.endswith('-USDT-SWAP'):
                 continue
 
-            vol_usdt = float(t.get('volCcy24h', 0))
+            last_price = float(t.get('last', 0))
+            # volCcyQuote = 计价货币(USDT)成交额，是最准确的USDT成交量
+            vol_usdt = float(t.get('volCcyQuote', 0))
+            # 如果没有volCcyQuote，用vol24h*price估算
+            if vol_usdt == 0 and last_price > 0:
+                vol_usdt = float(t.get('vol24h', 0)) * last_price
             if vol_usdt < min_volume_usd:
                 continue
 
@@ -40,7 +45,7 @@ def get_top_symbols(min_volume_usd=100_000_000, max_count=80):
                 'symbol':     inst_id,
                 'display':    inst_id.replace('-USDT-SWAP', ''),
                 'volume_24h': vol_usdt,
-                'last_price': float(t.get('last', 0)),
+                'last_price': last_price,
                 'change_24h': float(t.get('sodUtc8', 0)),
             })
 
