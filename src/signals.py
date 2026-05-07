@@ -273,11 +273,26 @@ def analyze_symbol_timeframe(df, timeframe):
     zero_cross_nth = cross_count if cross_count > 0 else 1
 
     # 高概率信号：归零轴 + EMA52
-    high_prob = (
-        near_zero and
-        ema52_state['near_ema52'] and
-        zero_cross_nth <= 2
-    )
+    # 注意：上级别检查在run_monitor里做，这里只判断本级别条件
+    # 做多条件：MACD在零轴上方归零 + 触EMA52 + EMA52向上
+    # 做空条件：MACD在零轴下方归零 + 触EMA52 + EMA52向下
+    ema52_slope = ema52_state.get('slope', '')
+    if latest_macd > 0:
+        # 从上方归零轴（可能做空）：EMA52向下才有效
+        high_prob = (
+            near_zero and
+            ema52_state['near_ema52'] and
+            zero_cross_nth <= 2 and
+            '向下' in ema52_slope
+        )
+    else:
+        # 从下方归零轴（可能做多）：EMA52向上才有效
+        high_prob = (
+            near_zero and
+            ema52_state['near_ema52'] and
+            zero_cross_nth <= 2 and
+            '向上' in ema52_slope
+        )
 
     return {
         "timeframe":       timeframe,
