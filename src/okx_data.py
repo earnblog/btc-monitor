@@ -33,8 +33,8 @@ def get_top_symbols(min_volume_usd=100_000_000, max_count=80):
                 continue
 
             last_price = float(t.get('last', 0))
-            # volCcyQuote = 计价货币(USDT)成交额，是最准确的USDT成交量
-            vol_usdt = float(t.get('volCcyQuote', 0))
+            # turnover24h = OKX图表显示的24小时USDT成交额
+            vol_usdt = float(t.get('turnover24h', 0))
             # 如果没有volCcyQuote，用vol24h*price估算
             if vol_usdt == 0 and last_price > 0:
                 vol_usdt = float(t.get('vol24h', 0)) * last_price
