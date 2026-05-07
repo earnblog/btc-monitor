@@ -240,17 +240,40 @@ def run():
             continue
 
         # ── 高概率信号（归零轴+EMA52，最高优先级）──
-        has_hp = any(bool(s.get('high_prob', False)) for s in sigs.values())
-        if has_hp:
+        # 加入上级别检查：上级别不能是反向高位
+        tf_order = ['5m', '15m', '30m', '1h', '2h', '4h']
+        valid_hp_tfs = []
+        for tf, s in sigs.items():
+            if not s or not bool(s.get('high_prob', False)):
+                continue
+            macd_val = float(s.get('macd', 0))
+            # 找上一级别
+            idx = tf_order.index(tf) if tf in tf_order else -1
+            if idx < len(tf_order) - 1:
+                upper_tf = tf_order[idx + 1]
+                upper_s = sigs.get(upper_tf)
+                if upper_s:
+                    upper_macd = float(upper_s.get('macd', 0))
+                    upper_ratio = abs(float(upper_s.get('dist_ratio', 0)))
+                    # 做多：上级别不能是高空（零轴上方高位）
+                    if macd_val < 0 and upper_macd > 0 and upper_ratio >= 2.0:
+                        print(f"  ⚠️ {name} {tf} 高概率做多被过滤：上级别{upper_tf}仍在高空{upper_ratio:.1f}倍")
+                        continue
+                    # 做空：上级别不能是低多（零轴下方高位）
+                    if macd_val > 0 and upper_macd < 0 and upper_ratio >= 2.0:
+                        print(f"  ⚠️ {name} {tf} 高概率做空被过滤：上级别{upper_tf}仍在低多{upper_ratio:.1f}倍")
+                        continue
+            valid_hp_tfs.append(tf)
+
+        if valid_hp_tfs:
             key = f"{inst_id}_hp"
             if not in_cooldown(cache, key):
-                hp_tfs = [tf for tf, s in sigs.items() if s and bool(s.get('high_prob',False))]
-                dir_ = 'short' if float(sigs[hp_tfs[0]].get('macd',0)) > 0 else 'long'
-                title, content = build_message(
-                    name, price, sigs, hp_tfs, dir_,
+                dir_ = 'short' if float(sigs[valid_hp_tfs[0]].get('macd',0)) > 0 else 'long'
+                title, msg = build_message(
+                    name, price, sigs, valid_hp_tfs, dir_,
                     4, '🎯 高概率信号', '极高',
-                    '归零轴+EMA52共振，书中最强买卖点', conclusion)
-                if send_wecom(WECOM_WEBHOOK, title, content):
+                    '归零轴+EMA52共振，上级别方向配合', conclusion)
+                if send_wecom(WECOM_WEBHOOK, title, msg):
                     cache[key] = datetime.now().isoformat()
                     print(f"  🎯 高概率: {name}")
                     push_count += 1
