@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-08-16T11:04:03.493114+00:00",
+  "updated_at": "2026-08-16T11:27:38.764505+00:00",
   "symbol_count": 22,
   "symbols": {
     "BTC-USDT-SWAP": {
       "display": "BTC",
-      "price": 62988.2,
-      "volume_24h": 62739261185.369995,
+      "price": 62963.8,
+      "volume_24h": 62883433005.68,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": -8.6114,
-          "dist_ratio": -1.06,
+          "macd": -9.2711,
+          "dist_ratio": -1.22,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -20,21 +20,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.04,
+            "dist_pct": 0.06,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 63010.6586
+            "ema52_value": 63004.6227
           },
           "high_prob": false,
-          "close": 62988.2,
-          "atr": 7.8357,
-          "histogram": 6.0916,
-          "hist_shrinking": false
+          "close": 62963.8,
+          "atr": 4.15,
+          "histogram": 0.2346,
+          "hist_shrinking": true
         },
         "15m": {
           "timeframe": "15m",
-          "macd": -19.0425,
-          "dist_ratio": -1.83,
+          "macd": -20.8379,
+          "dist_ratio": -1.97,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -44,21 +44,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.07,
+            "dist_pct": 0.11,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 63033.6604
+            "ema52_value": 63030.7805
           },
           "high_prob": false,
-          "close": 62988.2,
-          "atr": 16.7571,
-          "histogram": -4.3882,
-          "hist_shrinking": false
+          "close": 62963.8,
+          "atr": 18.0643,
+          "histogram": -6.2198,
+          "hist_shrinking": true
         },
         "30m": {
           "timeframe": "30m",
-          "macd": -18.1772,
-          "dist_ratio": -1.53,
+          "macd": -20.1236,
+          "dist_ratio": -1.7,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -68,21 +68,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.09,
+            "dist_pct": 0.12,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 63042.1362
+            "ema52_value": 63041.2154
           },
           "high_prob": false,
-          "close": 62988.2,
-          "atr": 29.3786,
-          "histogram": -15.8297,
-          "hist_shrinking": false
+          "close": 62963.8,
+          "atr": 31.1357,
+          "histogram": -18.944,
+          "hist_shrinking": true
         },
         "1h": {
           "timeframe": "1h",
-          "macd": -12.8421,
-          "dist_ratio": -0.19,
+          "macd": -14.7806,
+          "dist_ratio": -0.22,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -92,21 +92,21 @@
           "zero_cross_nth": 4,
           "ema52": {
             "above": false,
-            "dist_pct": 0.16,
+            "dist_pct": 0.2,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 63090.7737
+            "ema52_value": 63089.8567
           },
           "high_prob": false,
-          "close": 62988.2,
-          "atr": 50.0286,
-          "histogram": -20.3549,
+          "close": 62963.9,
+          "atr": 51.7857,
+          "histogram": -23.4564,
           "hist_shrinking": true
         },
         "2h": {
           "timeframe": "2h",
-          "macd": -58.4798,
-          "dist_ratio": -0.33,
+          "macd": -60.4262,
+          "dist_ratio": -0.34,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -116,20 +116,20 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": false,
-            "dist_pct": 0.5,
+            "dist_pct": 0.53,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 63301.7693
+            "ema52_value": 63300.8485
           },
           "high_prob": false,
-          "close": 62988.2,
+          "close": 62963.8,
           "atr": 99.3286,
-          "histogram": 30.114,
+          "histogram": 26.9997,
           "hist_shrinking": true
         },
         "4h": {
           "timeframe": "4h",
-          "macd": -215.5855,
+          "macd": -217.5239,
           "dist_ratio": -0.89,
           "direction": "下方",
           "divergence": 0,
@@ -140,108 +140,84 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.97,
+            "dist_pct": 1.01,
             "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 63608.2359
+            "near_ema52": false,
+            "ema52_value": 63607.3189
           },
           "high_prob": false,
-          "close": 62988.2,
+          "close": 62963.9,
           "atr": 242.1929,
-          "histogram": 82.8766,
+          "histogram": 79.775,
           "hist_shrinking": true
         }
       },
       "conclusion": "⏳ 暂无明显信号，建议等待",
-      "updated_at": "2026-08-16T11:03:11.175372",
+      "updated_at": "2026-08-16T11:26:46.696684",
       "is_priority": true
     },
     "XAU-USDT-SWAP": {
       "display": "XAU",
-      "price": 4385.4,
-      "volume_24h": 32003193247.199997,
+      "price": 4387.4,
+      "volume_24h": 32342636066.6,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": -0.3057,
-          "dist_ratio": -1.19,
+          "macd": -0.014,
+          "dist_ratio": -0.07,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
           "zero_cross": 0,
-          "near_zero": false,
+          "near_zero": true,
           "sticky_bars": 0,
           "zero_cross_nth": 3,
           "ema52": {
-            "above": false,
-            "dist_pct": 0.03,
+            "above": true,
+            "dist_pct": 0.02,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 4386.6029
+            "ema52_value": 4386.6093
           },
           "high_prob": false,
-          "close": 4385.4,
-          "atr": 0.1857,
-          "histogram": -0.21,
-          "hist_shrinking": true
+          "close": 4387.4,
+          "atr": 0.3429,
+          "histogram": 0.3166,
+          "hist_shrinking": false
         },
         "15m": {
           "timeframe": "15m",
-          "macd": -0.195,
-          "dist_ratio": -0.71,
+          "macd": -0.0507,
+          "dist_ratio": -0.19,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
           "zero_cross": 0,
-          "near_zero": false,
+          "near_zero": true,
           "sticky_bars": 0,
           "zero_cross_nth": 4,
           "ema52": {
-            "above": false,
+            "above": true,
             "dist_pct": 0.02,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 4386.3304
+            "ema52_value": 4386.3973
           },
           "high_prob": false,
-          "close": 4385.4,
-          "atr": 0.3286,
-          "histogram": -0.4108,
-          "hist_shrinking": true
+          "close": 4387.4,
+          "atr": 0.4571,
+          "histogram": -0.1157,
+          "hist_shrinking": false
         },
         "30m": {
           "timeframe": "30m",
-          "macd": 0.0769,
-          "dist_ratio": 0.11,
+          "macd": 0.2365,
+          "dist_ratio": 0.34,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": -1,
           "zero_cross": 0,
-          "near_zero": true,
-          "sticky_bars": 0,
-          "zero_cross_nth": 1,
-          "ema52": {
-            "above": true,
-            "dist_pct": 0.0,
-            "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 4385.293
-          },
-          "high_prob": false,
-          "close": 4385.4,
-          "atr": 0.9071,
-          "histogram": -0.4903,
-          "hist_shrinking": true
-        },
-        "1h": {
-          "timeframe": "1h",
-          "macd": 0.9606,
-          "dist_ratio": 0.19,
-          "direction": "上方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": true,
+          "near_zero": false,
           "sticky_bars": 0,
           "zero_cross_nth": 1,
           "ema52": {
@@ -249,18 +225,42 @@
             "dist_pct": 0.05,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 4383.207
+            "ema52_value": 4385.3685
           },
           "high_prob": false,
-          "close": 4385.4,
-          "atr": 1.4357,
-          "histogram": -0.7282,
-          "hist_shrinking": true
+          "close": 4387.4,
+          "atr": 1.0429,
+          "histogram": -0.2351,
+          "hist_shrinking": false
+        },
+        "1h": {
+          "timeframe": "1h",
+          "macd": 1.1201,
+          "dist_ratio": 0.22,
+          "direction": "上方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": true,
+          "sticky_bars": 0,
+          "zero_cross_nth": 1,
+          "ema52": {
+            "above": true,
+            "dist_pct": 0.09,
+            "slope": "水平→",
+            "near_ema52": true,
+            "ema52_value": 4383.2825
+          },
+          "high_prob": false,
+          "close": 4387.4,
+          "atr": 1.5714,
+          "histogram": -0.4729,
+          "hist_shrinking": false
         },
         "2h": {
           "timeframe": "2h",
-          "macd": 2.1941,
-          "dist_ratio": 0.32,
+          "macd": 2.3536,
+          "dist_ratio": 0.34,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -270,21 +270,21 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": true,
-            "dist_pct": 0.16,
+            "dist_pct": 0.2,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 4378.4519
+            "ema52_value": 4378.5274
           },
           "high_prob": false,
-          "close": 4385.4,
-          "atr": 2.6643,
-          "histogram": -0.15,
+          "close": 4387.4,
+          "atr": 2.7357,
+          "histogram": 0.1053,
           "hist_shrinking": true
         },
         "4h": {
           "timeframe": "4h",
-          "macd": 4.7984,
-          "dist_ratio": 0.15,
+          "macd": 4.958,
+          "dist_ratio": 0.16,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -294,55 +294,55 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": true,
-            "dist_pct": 0.81,
+            "dist_pct": 0.85,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 4350.2021
+            "ema52_value": 4350.2776
           },
           "high_prob": false,
-          "close": 4385.4,
-          "atr": 12.0643,
-          "histogram": -1.364,
-          "hist_shrinking": true
+          "close": 4387.4,
+          "atr": 12.0857,
+          "histogram": -1.1087,
+          "hist_shrinking": false
         }
       },
       "conclusion": "⏳ 暂无明显信号，建议等待",
-      "updated_at": "2026-08-16T11:03:13.255956",
+      "updated_at": "2026-08-16T11:26:48.903717",
       "is_priority": false
     },
     "ETH-USDT-SWAP": {
       "display": "ETH",
-      "price": 1880.47,
-      "volume_24h": 8062429356.7633,
+      "price": 1879.7,
+      "volume_24h": 8037427839.030001,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": -0.0035,
-          "dist_ratio": -0.02,
+          "macd": -0.0174,
+          "dist_ratio": -0.11,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
-          "zero_cross": 0,
+          "zero_cross": -1,
           "near_zero": true,
           "sticky_bars": 0,
-          "zero_cross_nth": 4,
+          "zero_cross_nth": 5,
           "ema52": {
-            "above": true,
-            "dist_pct": 0.01,
+            "above": false,
+            "dist_pct": 0.02,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1880.1896
+            "ema52_value": 1880.1668
           },
           "high_prob": false,
-          "close": 1880.47,
-          "atr": 0.5179,
-          "histogram": 0.2126,
-          "hist_shrinking": false
+          "close": 1879.7,
+          "atr": 0.3686,
+          "histogram": 0.018,
+          "hist_shrinking": true
         },
         "15m": {
           "timeframe": "15m",
-          "macd": -0.2696,
-          "dist_ratio": -0.76,
+          "macd": -0.2861,
+          "dist_ratio": -0.81,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -352,21 +352,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.02,
+            "dist_pct": 0.06,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1880.859
+            "ema52_value": 1880.8112
           },
           "high_prob": false,
-          "close": 1880.47,
-          "atr": 0.9164,
-          "histogram": 0.1913,
-          "hist_shrinking": false
+          "close": 1879.71,
+          "atr": 0.9557,
+          "histogram": 0.1289,
+          "hist_shrinking": true
         },
         "30m": {
           "timeframe": "30m",
-          "macd": -0.4825,
-          "dist_ratio": -0.98,
+          "macd": -0.5439,
+          "dist_ratio": -1.11,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 1,
@@ -376,21 +376,21 @@
           "zero_cross_nth": 4,
           "ema52": {
             "above": false,
-            "dist_pct": 0.04,
+            "dist_pct": 0.08,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1881.1622
+            "ema52_value": 1881.1331
           },
           "high_prob": false,
-          "close": 1880.47,
-          "atr": 1.6729,
-          "histogram": 0.0035,
-          "hist_shrinking": false
+          "close": 1879.7,
+          "atr": 1.7193,
+          "histogram": -0.0948,
+          "hist_shrinking": true
         },
         "1h": {
           "timeframe": "1h",
-          "macd": -0.3495,
-          "dist_ratio": -0.36,
+          "macd": -0.4102,
+          "dist_ratio": -0.42,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -400,21 +400,21 @@
           "zero_cross_nth": 6,
           "ema52": {
             "above": false,
-            "dist_pct": 0.05,
+            "dist_pct": 0.09,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1881.4808
+            "ema52_value": 1881.4522
           },
           "high_prob": false,
-          "close": 1880.47,
-          "atr": 2.6393,
-          "histogram": -0.4912,
+          "close": 1879.71,
+          "atr": 2.6857,
+          "histogram": -0.5882,
           "hist_shrinking": false
         },
         "2h": {
           "timeframe": "2h",
-          "macd": -0.4526,
-          "dist_ratio": -0.17,
+          "macd": -0.514,
+          "dist_ratio": -0.2,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -424,21 +424,21 @@
           "zero_cross_nth": 3,
           "ema52": {
             "above": false,
-            "dist_pct": 0.17,
+            "dist_pct": 0.21,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1883.7189
+            "ema52_value": 1883.6899
           },
           "high_prob": false,
-          "close": 1880.47,
-          "atr": 4.395,
-          "histogram": -0.0525,
+          "close": 1879.7,
+          "atr": 4.3971,
+          "histogram": -0.1508,
           "hist_shrinking": true
         },
         "4h": {
           "timeframe": "4h",
-          "macd": -2.19,
-          "dist_ratio": -0.35,
+          "macd": -2.2506,
+          "dist_ratio": -0.36,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -448,55 +448,31 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.36,
+            "dist_pct": 0.4,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1887.1959
+            "ema52_value": 1887.1672
           },
           "high_prob": false,
-          "close": 1880.47,
+          "close": 1879.71,
           "atr": 8.7171,
-          "histogram": 1.3409,
+          "histogram": 1.2439,
           "hist_shrinking": true
         }
       },
       "conclusion": "⏳ 暂无明显信号，建议等待",
-      "updated_at": "2026-08-16T11:03:15.369547",
+      "updated_at": "2026-08-16T11:26:51.191595",
       "is_priority": true
     },
     "ZEC-USDT-SWAP": {
       "display": "ZEC",
-      "price": 485.86,
-      "volume_24h": 4710040531.24,
+      "price": 486.34,
+      "volume_24h": 4704078906.719999,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": -0.4218,
-          "dist_ratio": -2.06,
-          "direction": "下方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 4,
-          "ema52": {
-            "above": false,
-            "dist_pct": 0.17,
-            "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 486.7051
-          },
-          "high_prob": false,
-          "close": 485.86,
-          "atr": 0.5464,
-          "histogram": -0.0094,
-          "hist_shrinking": false
-        },
-        "15m": {
-          "timeframe": "15m",
-          "macd": -0.2697,
-          "dist_ratio": -0.86,
+          "macd": -0.2718,
+          "dist_ratio": -1.21,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -506,21 +482,45 @@
           "zero_cross_nth": 3,
           "ema52": {
             "above": false,
-            "dist_pct": 0.27,
+            "dist_pct": 0.05,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 487.1762
+            "ema52_value": 486.5737
           },
           "high_prob": false,
-          "close": 485.86,
-          "atr": 1.0779,
-          "histogram": -0.3841,
+          "close": 486.34,
+          "atr": 0.4207,
+          "histogram": 0.1934,
+          "hist_shrinking": false
+        },
+        "15m": {
+          "timeframe": "15m",
+          "macd": -0.2658,
+          "dist_ratio": -0.84,
+          "direction": "下方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 3,
+          "ema52": {
+            "above": false,
+            "dist_pct": 0.16,
+            "slope": "水平→",
+            "near_ema52": true,
+            "ema52_value": 487.1425
+          },
+          "high_prob": false,
+          "close": 486.34,
+          "atr": 1.105,
+          "histogram": -0.3004,
           "hist_shrinking": false
         },
         "30m": {
           "timeframe": "30m",
-          "macd": -0.3953,
-          "dist_ratio": -0.76,
+          "macd": -0.357,
+          "dist_ratio": -0.69,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -530,21 +530,21 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": false,
-            "dist_pct": 0.42,
+            "dist_pct": 0.32,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 487.8863
+            "ema52_value": 487.9044
           },
           "high_prob": false,
-          "close": 485.86,
-          "atr": 1.6743,
-          "histogram": -0.0329,
+          "close": 486.34,
+          "atr": 1.7279,
+          "histogram": 0.0284,
           "hist_shrinking": true
         },
         "1h": {
           "timeframe": "1h",
-          "macd": -0.856,
-          "dist_ratio": -1.41,
+          "macd": -0.8177,
+          "dist_ratio": -1.35,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -554,21 +554,21 @@
           "zero_cross_nth": 4,
           "ema52": {
             "above": false,
-            "dist_pct": 0.56,
+            "dist_pct": 0.47,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 488.5968
+            "ema52_value": 488.6149
           },
           "high_prob": false,
-          "close": 485.86,
-          "atr": 2.2571,
-          "histogram": -0.1201,
+          "close": 486.34,
+          "atr": 2.3107,
+          "histogram": -0.0589,
           "hist_shrinking": true
         },
         "2h": {
           "timeframe": "2h",
-          "macd": -0.883,
-          "dist_ratio": -0.41,
+          "macd": -0.8447,
+          "dist_ratio": -0.39,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -578,21 +578,21 @@
           "zero_cross_nth": 5,
           "ema52": {
             "above": false,
-            "dist_pct": 0.84,
+            "dist_pct": 0.74,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 489.9666
+            "ema52_value": 489.9847
           },
           "high_prob": false,
-          "close": 485.86,
+          "close": 486.34,
           "atr": 3.6329,
-          "histogram": -0.7206,
-          "hist_shrinking": true
+          "histogram": -0.6593,
+          "hist_shrinking": false
         },
         "4h": {
           "timeframe": "4h",
-          "macd": -1.3859,
-          "dist_ratio": -0.37,
+          "macd": -1.3476,
+          "dist_ratio": -0.36,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -602,31 +602,31 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": false,
-            "dist_pct": 1.24,
+            "dist_pct": 1.15,
             "slope": "水平→",
             "near_ema52": false,
-            "ema52_value": 491.9696
+            "ema52_value": 491.9877
           },
           "high_prob": false,
-          "close": 485.86,
+          "close": 486.34,
           "atr": 6.2171,
-          "histogram": -0.0488,
+          "histogram": 0.0125,
           "hist_shrinking": true
         }
       },
       "conclusion": "⏳ 零轴黏合，等待方向突破",
-      "updated_at": "2026-08-16T11:03:17.529548",
+      "updated_at": "2026-08-16T11:26:53.384054",
       "is_priority": false
     },
     "OKB-USDT-SWAP": {
       "display": "OKB",
-      "price": 102.77,
-      "volume_24h": 4128394224.0,
+      "price": 102.94,
+      "volume_24h": 4152334014.7999997,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": -0.2432,
-          "dist_ratio": -2.84,
+          "macd": -0.1782,
+          "dist_ratio": -1.75,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -636,21 +636,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.48,
+            "dist_pct": 0.41,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 103.4627
+            "ema52_value": 103.3694
           },
           "high_prob": false,
-          "close": 102.97,
-          "atr": 0.3493,
-          "histogram": -0.0936,
+          "close": 102.95,
+          "atr": 0.3021,
+          "histogram": 0.0437,
           "hist_shrinking": false
         },
         "15m": {
           "timeframe": "15m",
-          "macd": -0.3416,
-          "dist_ratio": -0.73,
+          "macd": -0.3292,
+          "dist_ratio": -0.7,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -660,21 +660,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 1.24,
+            "dist_pct": 1.13,
             "slope": "水平→",
             "near_ema52": false,
-            "ema52_value": 104.1699
+            "ema52_value": 104.1275
           },
           "high_prob": false,
-          "close": 102.88,
-          "atr": 0.5507,
-          "histogram": -0.1148,
+          "close": 102.95,
+          "atr": 0.5557,
+          "histogram": -0.0746,
           "hist_shrinking": false
         },
         "30m": {
           "timeframe": "30m",
-          "macd": -0.6747,
-          "dist_ratio": -1.39,
+          "macd": -0.6763,
+          "dist_ratio": -1.4,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -684,20 +684,20 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": false,
-            "dist_pct": 1.85,
+            "dist_pct": 1.87,
             "slope": "向下↓",
             "near_ema52": false,
-            "ema52_value": 104.908
+            "ema52_value": 104.9073
           },
           "high_prob": false,
-          "close": 102.97,
-          "atr": 0.69,
-          "histogram": 0.0661,
-          "hist_shrinking": false
+          "close": 102.95,
+          "atr": 0.6986,
+          "histogram": 0.0635,
+          "hist_shrinking": true
         },
         "1h": {
           "timeframe": "1h",
-          "macd": -0.9214,
+          "macd": -0.923,
           "dist_ratio": -1.09,
           "direction": "下方",
           "divergence": 0,
@@ -708,20 +708,20 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": false,
-            "dist_pct": 1.71,
+            "dist_pct": 1.73,
             "slope": "水平→",
             "near_ema52": false,
-            "ema52_value": 104.7603
+            "ema52_value": 104.7596
           },
           "high_prob": false,
-          "close": 102.97,
-          "atr": 1.1243,
-          "histogram": -0.4013,
+          "close": 102.95,
+          "atr": 1.1329,
+          "histogram": -0.4039,
           "hist_shrinking": false
         },
         "2h": {
           "timeframe": "2h",
-          "macd": -0.0369,
+          "macd": -0.0377,
           "dist_ratio": -0.03,
           "direction": "下方",
           "divergence": 0,
@@ -732,20 +732,20 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": true,
-            "dist_pct": 0.07,
+            "dist_pct": 0.06,
             "slope": "向上↑",
             "near_ema52": true,
-            "ema52_value": 102.8883
+            "ema52_value": 102.8879
           },
           "high_prob": true,
-          "close": 102.96,
+          "close": 102.95,
           "atr": 1.7121,
-          "histogram": -1.4507,
+          "histogram": -1.452,
           "hist_shrinking": false
         },
         "4h": {
           "timeframe": "4h",
-          "macd": 1.8608,
+          "macd": 1.8664,
           "dist_ratio": 1.06,
           "direction": "上方",
           "divergence": 0,
@@ -756,55 +756,55 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": true,
-            "dist_pct": 3.7,
+            "dist_pct": 3.77,
             "slope": "向上↑",
             "near_ema52": false,
-            "ema52_value": 99.2092
+            "ema52_value": 99.2118
           },
           "high_prob": false,
-          "close": 102.88,
+          "close": 102.95,
           "atr": 2.5207,
-          "histogram": -1.4868,
+          "histogram": -1.4778,
           "hist_shrinking": true
         }
       },
       "conclusion": "🎯 高概率做空【归零轴+EMA52共振】",
-      "updated_at": "2026-08-16T11:03:20.764745",
+      "updated_at": "2026-08-16T11:26:55.530435",
       "is_priority": false
     },
     "YFI-USDT-SWAP": {
       "display": "YFI",
-      "price": 1935.0,
-      "volume_24h": 3636830565.0,
+      "price": 1936.0,
+      "volume_24h": 3586139920.0,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": -1.0839,
-          "dist_ratio": -0.66,
+          "macd": -0.3783,
+          "dist_ratio": -0.24,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
           "zero_cross": 0,
-          "near_zero": false,
+          "near_zero": true,
           "sticky_bars": 0,
           "zero_cross_nth": 3,
           "ema52": {
             "above": false,
-            "dist_pct": 0.08,
+            "dist_pct": 0.03,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1936.5791
+            "ema52_value": 1936.5817
           },
           "high_prob": false,
-          "close": 1935.0,
-          "atr": 2.3571,
-          "histogram": 0.188,
-          "hist_shrinking": false
+          "close": 1936.0,
+          "atr": 1.7857,
+          "histogram": 0.7505,
+          "hist_shrinking": true
         },
         "15m": {
           "timeframe": "15m",
-          "macd": -0.3319,
-          "dist_ratio": -0.14,
+          "macd": -0.1546,
+          "dist_ratio": -0.06,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -814,21 +814,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.18,
+            "dist_pct": 0.13,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1938.477
+            "ema52_value": 1938.4893
           },
           "high_prob": false,
-          "close": 1935.0,
-          "atr": 3.8571,
-          "histogram": -0.6158,
+          "close": 1936.0,
+          "atr": 3.9286,
+          "histogram": -0.2855,
           "hist_shrinking": true
         },
         "30m": {
           "timeframe": "30m",
-          "macd": -1.6936,
-          "dist_ratio": -0.38,
+          "macd": -1.6138,
+          "dist_ratio": -0.36,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -838,21 +838,21 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": false,
-            "dist_pct": 0.21,
+            "dist_pct": 0.16,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1939.1279
+            "ema52_value": 1939.1656
           },
           "high_prob": false,
-          "close": 1935.0,
-          "atr": 6.5714,
-          "histogram": 0.98,
+          "close": 1936.0,
+          "atr": 6.7143,
+          "histogram": 1.1076,
           "hist_shrinking": true
         },
         "1h": {
           "timeframe": "1h",
-          "macd": -0.8903,
-          "dist_ratio": -0.19,
+          "macd": -0.8105,
+          "dist_ratio": -0.17,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -862,21 +862,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.15,
+            "dist_pct": 0.1,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1937.8156
+            "ema52_value": 1937.8533
           },
           "high_prob": false,
-          "close": 1935.0,
-          "atr": 9.0,
-          "histogram": -2.4592,
+          "close": 1936.0,
+          "atr": 9.1429,
+          "histogram": -2.3316,
           "hist_shrinking": false
         },
         "2h": {
           "timeframe": "2h",
-          "macd": 0.9839,
-          "dist_ratio": 0.07,
+          "macd": 1.0637,
+          "dist_ratio": 0.08,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": -1,
@@ -886,20 +886,20 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.62,
+            "dist_pct": 0.57,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1947.069
+            "ema52_value": 1947.1068
           },
           "high_prob": false,
-          "close": 1935.0,
-          "atr": 19.5714,
-          "histogram": -1.8589,
+          "close": 1936.0,
+          "atr": 19.6429,
+          "histogram": -1.7313,
           "hist_shrinking": true
         },
         "4h": {
           "timeframe": "4h",
-          "macd": -8.6085,
+          "macd": -8.5287,
           "dist_ratio": -0.54,
           "direction": "下方",
           "divergence": 0,
@@ -910,55 +910,55 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": false,
-            "dist_pct": 1.98,
+            "dist_pct": 1.93,
             "slope": "向下↓",
             "near_ema52": false,
-            "ema52_value": 1973.9996
+            "ema52_value": 1974.0373
           },
           "high_prob": false,
-          "close": 1935.0,
+          "close": 1936.0,
           "atr": 22.1429,
-          "histogram": 10.4413,
+          "histogram": 10.5689,
           "hist_shrinking": true
         }
       },
       "conclusion": "⏳ 暂无明显信号，建议等待",
-      "updated_at": "2026-08-16T11:03:24.735672",
+      "updated_at": "2026-08-16T11:26:58.739241",
       "is_priority": false
     },
     "BNB-USDT-SWAP": {
       "display": "BNB",
-      "price": 606.3,
-      "volume_24h": 2258446279.5,
+      "price": 606.4,
+      "volume_24h": 2224372830.4,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": -0.0052,
-          "dist_ratio": -0.02,
-          "direction": "下方",
+          "macd": 0.0386,
+          "dist_ratio": 0.18,
+          "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
           "zero_cross": 0,
           "near_zero": true,
           "sticky_bars": 0,
-          "zero_cross_nth": 1,
+          "zero_cross_nth": 2,
           "ema52": {
             "above": true,
-            "dist_pct": 0.02,
+            "dist_pct": 0.05,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 606.1528
+            "ema52_value": 606.2069
           },
           "high_prob": false,
-          "close": 606.3,
-          "atr": 0.3,
-          "histogram": -0.1329,
+          "close": 606.5,
+          "atr": 0.2357,
+          "histogram": 0.0034,
           "hist_shrinking": false
         },
         "15m": {
           "timeframe": "15m",
-          "macd": 0.069,
-          "dist_ratio": 0.13,
+          "macd": 0.0891,
+          "dist_ratio": 0.17,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -968,21 +968,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.07,
+            "dist_pct": 0.04,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 606.7196
+            "ema52_value": 606.7148
           },
           "high_prob": false,
-          "close": 606.3,
-          "atr": 0.6929,
-          "histogram": 0.177,
+          "close": 606.5,
+          "atr": 0.7143,
+          "histogram": 0.1711,
           "hist_shrinking": true
         },
         "30m": {
           "timeframe": "30m",
-          "macd": -0.4838,
-          "dist_ratio": -0.65,
+          "macd": -0.4679,
+          "dist_ratio": -0.63,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -992,21 +992,21 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": false,
-            "dist_pct": 0.21,
+            "dist_pct": 0.18,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 607.5957
+            "ema52_value": 607.6032
           },
           "high_prob": false,
-          "close": 606.3,
-          "atr": 0.8643,
-          "histogram": 0.4957,
+          "close": 606.5,
+          "atr": 0.8857,
+          "histogram": 0.5212,
           "hist_shrinking": true
         },
         "1h": {
           "timeframe": "1h",
-          "macd": -0.887,
-          "dist_ratio": -1.24,
+          "macd": -0.8711,
+          "dist_ratio": -1.22,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -1016,21 +1016,21 @@
           "zero_cross_nth": 4,
           "ema52": {
             "above": false,
-            "dist_pct": 0.31,
+            "dist_pct": 0.28,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 608.1942
+            "ema52_value": 608.2018
           },
           "high_prob": false,
-          "close": 606.3,
-          "atr": 1.2214,
-          "histogram": -0.1772,
+          "close": 606.5,
+          "atr": 1.2429,
+          "histogram": -0.1516,
           "hist_shrinking": false
         },
         "2h": {
           "timeframe": "2h",
-          "macd": -0.7157,
-          "dist_ratio": -0.59,
+          "macd": -0.6997,
+          "dist_ratio": -0.58,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": -1,
@@ -1040,21 +1040,21 @@
           "zero_cross_nth": 3,
           "ema52": {
             "above": false,
-            "dist_pct": 0.27,
+            "dist_pct": 0.24,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 607.9653
+            "ema52_value": 607.9729
           },
           "high_prob": false,
-          "close": 606.3,
+          "close": 606.5,
           "atr": 2.0,
-          "histogram": -0.8292,
+          "histogram": -0.8037,
           "hist_shrinking": false
         },
         "4h": {
           "timeframe": "4h",
-          "macd": 0.1079,
-          "dist_ratio": 0.05,
+          "macd": 0.1239,
+          "dist_ratio": 0.06,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -1064,55 +1064,31 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": true,
-            "dist_pct": 0.22,
+            "dist_pct": 0.25,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 604.9837
+            "ema52_value": 604.9912
           },
           "high_prob": false,
-          "close": 606.3,
+          "close": 606.5,
           "atr": 3.3286,
-          "histogram": -1.3276,
+          "histogram": -1.3021,
           "hist_shrinking": true
         }
       },
       "conclusion": "⏳ 暂无明显信号，建议等待",
-      "updated_at": "2026-08-16T11:03:26.800261",
+      "updated_at": "2026-08-16T11:27:00.933829",
       "is_priority": false
     },
     "HYPE-USDT-SWAP": {
       "display": "HYPE",
-      "price": 57.43,
-      "volume_24h": 643573674.04,
+      "price": 57.431,
+      "volume_24h": 644462770.5339999,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": 0.0059,
-          "dist_ratio": 0.13,
-          "direction": "上方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 1,
-          "near_zero": true,
-          "sticky_bars": 0,
-          "zero_cross_nth": 3,
-          "ema52": {
-            "above": true,
-            "dist_pct": 0.21,
-            "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 57.3373
-          },
-          "high_prob": false,
-          "close": 57.46,
-          "atr": 0.0879,
-          "histogram": -0.0025,
-          "hist_shrinking": false
-        },
-        "15m": {
-          "timeframe": "15m",
-          "macd": 0.0888,
-          "dist_ratio": 1.43,
+          "macd": 0.018,
+          "dist_ratio": 0.39,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -1122,21 +1098,45 @@
           "zero_cross_nth": 3,
           "ema52": {
             "above": true,
-            "dist_pct": 0.53,
+            "dist_pct": 0.13,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 57.1592
+            "ema52_value": 57.3576
           },
           "high_prob": false,
-          "close": 57.46,
-          "atr": 0.1431,
-          "histogram": -0.0143,
-          "hist_shrinking": false
+          "close": 57.431,
+          "atr": 0.0788,
+          "histogram": 0.0092,
+          "hist_shrinking": true
+        },
+        "15m": {
+          "timeframe": "15m",
+          "macd": 0.0869,
+          "dist_ratio": 1.44,
+          "direction": "上方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 3,
+          "ema52": {
+            "above": true,
+            "dist_pct": 0.46,
+            "slope": "水平→",
+            "near_ema52": true,
+            "ema52_value": 57.1698
+          },
+          "high_prob": false,
+          "close": 57.431,
+          "atr": 0.1416,
+          "histogram": -0.0149,
+          "hist_shrinking": true
         },
         "30m": {
           "timeframe": "30m",
-          "macd": 0.152,
-          "dist_ratio": 1.4,
+          "macd": 0.1497,
+          "dist_ratio": 1.38,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -1146,20 +1146,68 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": true,
-            "dist_pct": 0.85,
+            "dist_pct": 0.8,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 56.9741
+            "ema52_value": 56.973
           },
           "high_prob": false,
-          "close": 57.46,
-          "atr": 0.2111,
-          "histogram": 0.0316,
+          "close": 57.431,
+          "atr": 0.2143,
+          "histogram": 0.0279,
           "hist_shrinking": true
         },
         "1h": {
           "timeframe": "1h",
-          "macd": 0.2281,
+          "macd": 0.2257,
+          "dist_ratio": 1.36,
+          "direction": "上方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 1,
+          "ema52": {
+            "above": true,
+            "dist_pct": 1.15,
+            "slope": "水平→",
+            "near_ema52": false,
+            "ema52_value": 56.7764
+          },
+          "high_prob": false,
+          "close": 57.431,
+          "atr": 0.2915,
+          "histogram": 0.0492,
+          "hist_shrinking": true
+        },
+        "2h": {
+          "timeframe": "2h",
+          "macd": 0.2553,
+          "dist_ratio": 1.07,
+          "direction": "上方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 3,
+          "ema52": {
+            "above": true,
+            "dist_pct": 1.71,
+            "slope": "向上↑",
+            "near_ema52": false,
+            "ema52_value": 56.4658
+          },
+          "high_prob": false,
+          "close": 57.431,
+          "atr": 0.4417,
+          "histogram": 0.1577,
+          "hist_shrinking": true
+        },
+        "4h": {
+          "timeframe": "4h",
+          "macd": 0.3795,
           "dist_ratio": 1.38,
           "direction": "上方",
           "divergence": 0,
@@ -1167,106 +1215,58 @@
           "zero_cross": 0,
           "near_zero": false,
           "sticky_bars": 0,
-          "zero_cross_nth": 1,
-          "ema52": {
-            "above": true,
-            "dist_pct": 1.2,
-            "slope": "水平→",
-            "near_ema52": false,
-            "ema52_value": 56.7775
-          },
-          "high_prob": false,
-          "close": 57.46,
-          "atr": 0.2883,
-          "histogram": 0.0529,
-          "hist_shrinking": true
-        },
-        "2h": {
-          "timeframe": "2h",
-          "macd": 0.2576,
-          "dist_ratio": 1.08,
-          "direction": "上方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
           "zero_cross_nth": 3,
           "ema52": {
             "above": true,
-            "dist_pct": 1.76,
+            "dist_pct": 2.47,
             "slope": "向上↑",
             "near_ema52": false,
-            "ema52_value": 56.4669
+            "ema52_value": 56.0458
           },
           "high_prob": false,
-          "close": 57.46,
-          "atr": 0.4401,
-          "histogram": 0.1614,
-          "hist_shrinking": false
-        },
-        "4h": {
-          "timeframe": "4h",
-          "macd": 0.3819,
-          "dist_ratio": 1.39,
-          "direction": "上方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 3,
-          "ema52": {
-            "above": true,
-            "dist_pct": 2.52,
-            "slope": "向上↑",
-            "near_ema52": false,
-            "ema52_value": 56.0469
-          },
-          "high_prob": false,
-          "close": 57.46,
+          "close": 57.431,
           "atr": 0.6961,
-          "histogram": 0.0986,
+          "histogram": 0.0949,
           "hist_shrinking": false
         }
       },
       "conclusion": "⏳ 暂无明显信号，建议等待",
-      "updated_at": "2026-08-16T11:03:28.884726",
+      "updated_at": "2026-08-16T11:27:03.174180",
       "is_priority": false
     },
     "GIGGLE-USDT-SWAP": {
       "display": "GIGGLE",
-      "price": 30.82,
-      "volume_24h": 588964590.76,
+      "price": 30.78,
+      "volume_24h": 590576875.74,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": 0.0181,
-          "dist_ratio": 0.26,
+          "macd": 0.0231,
+          "dist_ratio": 0.35,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
           "zero_cross": 0,
-          "near_zero": true,
+          "near_zero": false,
           "sticky_bars": 0,
           "zero_cross_nth": 1,
           "ema52": {
             "above": true,
-            "dist_pct": 0.45,
+            "dist_pct": 0.33,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 30.6616
+            "ema52_value": 30.6877
           },
           "high_prob": false,
-          "close": 30.8,
-          "atr": 0.1086,
-          "histogram": 0.0046,
-          "hist_shrinking": false
+          "close": 30.79,
+          "atr": 0.1143,
+          "histogram": -0.0006,
+          "hist_shrinking": true
         },
         "15m": {
           "timeframe": "15m",
-          "macd": 0.1007,
-          "dist_ratio": 1.61,
+          "macd": 0.1014,
+          "dist_ratio": 1.59,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": -1,
@@ -1276,15 +1276,15 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": true,
-            "dist_pct": 0.73,
+            "dist_pct": 0.7,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 30.5772
+            "ema52_value": 30.5871
           },
           "high_prob": false,
           "close": 30.8,
-          "atr": 0.2714,
-          "histogram": 0.0004,
+          "atr": 0.2543,
+          "histogram": 0.0005,
           "hist_shrinking": true
         },
         "30m": {
@@ -1307,32 +1307,32 @@
           },
           "high_prob": false,
           "close": 30.8,
-          "atr": 0.3571,
+          "atr": 0.3593,
           "histogram": 0.1238,
           "hist_shrinking": true
         },
         "1h": {
           "timeframe": "1h",
-          "macd": -0.1285,
-          "dist_ratio": -0.29,
+          "macd": -0.1309,
+          "dist_ratio": -0.3,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
           "zero_cross": 0,
-          "near_zero": true,
+          "near_zero": false,
           "sticky_bars": 0,
           "zero_cross_nth": 1,
           "ema52": {
             "above": false,
-            "dist_pct": 1.53,
+            "dist_pct": 1.62,
             "slope": "向下↓",
             "near_ema52": false,
-            "ema52_value": 31.3089
+            "ema52_value": 31.3078
           },
           "high_prob": false,
-          "close": 30.83,
-          "atr": 0.4393,
-          "histogram": 0.2329,
+          "close": 30.8,
+          "atr": 0.4414,
+          "histogram": 0.2291,
           "hist_shrinking": false
         },
         "2h": {
@@ -1355,13 +1355,13 @@
           },
           "high_prob": false,
           "close": 30.8,
-          "atr": 0.5764,
+          "atr": 0.5786,
           "histogram": 0.2237,
           "hist_shrinking": false
         },
         "4h": {
           "timeframe": "4h",
-          "macd": -1.0801,
+          "macd": -1.0809,
           "dist_ratio": -1.85,
           "direction": "下方",
           "divergence": 0,
@@ -1372,55 +1372,55 @@
           "zero_cross_nth": 3,
           "ema52": {
             "above": false,
-            "dist_pct": 7.03,
+            "dist_pct": 7.06,
             "slope": "向下↓",
             "near_ema52": false,
-            "ema52_value": 33.139
+            "ema52_value": 33.1386
           },
           "high_prob": false,
-          "close": 30.81,
+          "close": 30.8,
           "atr": 0.9386,
-          "histogram": -0.1626,
+          "histogram": -0.1639,
           "hist_shrinking": false
         }
       },
       "conclusion": "⏳ 暂无明显信号，建议等待",
-      "updated_at": "2026-08-16T11:03:31.036851",
+      "updated_at": "2026-08-16T11:27:05.377159",
       "is_priority": false
     },
     "TAO-USDT-SWAP": {
       "display": "TAO",
-      "price": 195.9,
-      "volume_24h": 494126797.8,
+      "price": 196.2,
+      "volume_24h": 495178389.0,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": -0.0517,
-          "dist_ratio": -0.55,
-          "direction": "下方",
+          "macd": 0.022,
+          "dist_ratio": 0.29,
+          "direction": "上方",
           "divergence": 0,
-          "hidden_div": 0,
+          "hidden_div": -1,
           "zero_cross": 0,
           "near_zero": false,
           "sticky_bars": 0,
           "zero_cross_nth": 4,
           "ema52": {
-            "above": false,
-            "dist_pct": 0.02,
+            "above": true,
+            "dist_pct": 0.07,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 195.9406
+            "ema52_value": 195.9618
           },
           "high_prob": false,
-          "close": 195.9,
-          "atr": 0.1214,
-          "histogram": 0.0071,
+          "close": 196.1,
+          "atr": 0.1,
+          "histogram": 0.079,
           "hist_shrinking": false
         },
         "15m": {
           "timeframe": "15m",
-          "macd": -0.0978,
-          "dist_ratio": -0.55,
+          "macd": -0.0677,
+          "dist_ratio": -0.38,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -1430,21 +1430,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.19,
+            "dist_pct": 0.09,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 196.2715
+            "ema52_value": 196.2684
           },
           "high_prob": false,
-          "close": 195.9,
-          "atr": 0.2857,
-          "histogram": 0.0342,
+          "close": 196.1,
+          "atr": 0.2786,
+          "histogram": 0.0729,
           "hist_shrinking": false
         },
         "30m": {
           "timeframe": "30m",
-          "macd": -0.2743,
-          "dist_ratio": -1.18,
+          "macd": -0.2584,
+          "dist_ratio": -1.12,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -1454,21 +1454,21 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": false,
-            "dist_pct": 0.44,
+            "dist_pct": 0.34,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 196.7592
+            "ema52_value": 196.7667
           },
           "high_prob": false,
-          "close": 195.9,
-          "atr": 0.4643,
-          "histogram": 0.0899,
+          "close": 196.1,
+          "atr": 0.4929,
+          "histogram": 0.1154,
           "hist_shrinking": false
         },
         "1h": {
           "timeframe": "1h",
-          "macd": -0.5152,
-          "dist_ratio": -0.91,
+          "macd": -0.4992,
+          "dist_ratio": -0.88,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -1478,21 +1478,21 @@
           "zero_cross_nth": 3,
           "ema52": {
             "above": false,
-            "dist_pct": 0.83,
+            "dist_pct": 0.73,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 197.5377
+            "ema52_value": 197.5453
           },
           "high_prob": false,
-          "close": 195.9,
-          "atr": 0.7357,
-          "histogram": -0.0236,
+          "close": 196.1,
+          "atr": 0.7643,
+          "histogram": 0.0019,
           "hist_shrinking": false
         },
         "2h": {
           "timeframe": "2h",
-          "macd": -0.9083,
-          "dist_ratio": -1.63,
+          "macd": -0.8924,
+          "dist_ratio": -1.6,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -1502,233 +1502,209 @@
           "zero_cross_nth": 3,
           "ema52": {
             "above": false,
-            "dist_pct": 1.32,
+            "dist_pct": 1.22,
             "slope": "水平→",
             "near_ema52": false,
-            "ema52_value": 198.5209
+            "ema52_value": 198.5284
           },
           "high_prob": false,
-          "close": 195.9,
-          "atr": 1.0714,
-          "histogram": -0.1063,
+          "close": 196.1,
+          "atr": 1.0786,
+          "histogram": -0.0808,
           "hist_shrinking": false
         },
         "4h": {
           "timeframe": "4h",
-          "macd": -1.058,
-          "dist_ratio": -1.09,
-          "direction": "下方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 4,
-          "ema52": {
-            "above": false,
-            "dist_pct": 1.33,
-            "slope": "水平→",
-            "near_ema52": false,
-            "ema52_value": 198.5475
-          },
-          "high_prob": false,
-          "close": 195.9,
-          "atr": 2.3429,
-          "histogram": -0.5541,
-          "hist_shrinking": false
-        }
-      },
-      "conclusion": "⏳ 暂无明显信号，建议等待",
-      "updated_at": "2026-08-16T11:03:33.138678",
-      "is_priority": false
-    },
-    "ICP-USDT-SWAP": {
-      "display": "ICP",
-      "price": 2.271,
-      "volume_24h": 482927003.145,
-      "signals": {
-        "5m": {
-          "timeframe": "5m",
-          "macd": 0.0018,
-          "dist_ratio": 0.4,
-          "direction": "上方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 1,
-          "ema52": {
-            "above": true,
-            "dist_pct": 0.24,
-            "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 2.2655
-          },
-          "high_prob": false,
-          "close": 2.271,
-          "atr": 0.0048,
-          "histogram": -0.0008,
-          "hist_shrinking": true
-        },
-        "15m": {
-          "timeframe": "15m",
-          "macd": 0.0088,
-          "dist_ratio": 1.47,
-          "direction": "上方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 2,
-          "ema52": {
-            "above": true,
-            "dist_pct": 0.76,
-            "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 2.2539
-          },
-          "high_prob": false,
-          "close": 2.271,
-          "atr": 0.0104,
-          "histogram": -0.0006,
-          "hist_shrinking": true
-        },
-        "30m": {
-          "timeframe": "30m",
-          "macd": 0.0082,
-          "dist_ratio": 1.26,
-          "direction": "上方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 3,
-          "ema52": {
-            "above": true,
-            "dist_pct": 0.88,
-            "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 2.2512
-          },
-          "high_prob": false,
-          "close": 2.271,
-          "atr": 0.0116,
-          "histogram": 0.0073,
-          "hist_shrinking": true
-        },
-        "1h": {
-          "timeframe": "1h",
-          "macd": 0.0056,
-          "dist_ratio": 0.56,
-          "direction": "上方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 2,
-          "ema52": {
-            "above": true,
-            "dist_pct": 1.27,
-            "slope": "水平→",
-            "near_ema52": false,
-            "ema52_value": 2.2426
-          },
-          "high_prob": false,
-          "close": 2.271,
-          "atr": 0.0158,
-          "histogram": 0.008,
-          "hist_shrinking": true
-        },
-        "2h": {
-          "timeframe": "2h",
-          "macd": 0.0106,
-          "dist_ratio": 0.73,
-          "direction": "上方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 1,
-          "ema52": {
-            "above": true,
-            "dist_pct": 1.92,
-            "slope": "水平→",
-            "near_ema52": false,
-            "ema52_value": 2.2283
-          },
-          "high_prob": false,
-          "close": 2.271,
-          "atr": 0.0239,
-          "histogram": -0.0005,
-          "hist_shrinking": false
-        },
-        "4h": {
-          "timeframe": "4h",
-          "macd": 0.0159,
-          "dist_ratio": 0.94,
-          "direction": "上方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 3,
-          "ema52": {
-            "above": true,
-            "dist_pct": 2.96,
-            "slope": "向上↑",
-            "near_ema52": false,
-            "ema52_value": 2.2056
-          },
-          "high_prob": false,
-          "close": 2.271,
-          "atr": 0.0413,
-          "histogram": 0.0064,
-          "hist_shrinking": false
-        }
-      },
-      "conclusion": "⏳ 暂无明显信号，建议等待",
-      "updated_at": "2026-08-16T11:03:35.260906",
-      "is_priority": false
-    },
-    "BZ-USDT-SWAP": {
-      "display": "BZ",
-      "price": 86.3,
-      "volume_24h": 324915702.8,
-      "signals": {
-        "5m": {
-          "timeframe": "5m",
-          "macd": -0.0086,
-          "dist_ratio": -0.66,
+          "macd": -1.042,
+          "dist_ratio": -1.07,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 1,
           "zero_cross": 0,
           "near_zero": false,
           "sticky_bars": 0,
-          "zero_cross_nth": 3,
+          "zero_cross_nth": 4,
           "ema52": {
-            "above": true,
-            "dist_pct": 0.01,
+            "above": false,
+            "dist_pct": 1.24,
             "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 86.305
+            "near_ema52": false,
+            "ema52_value": 198.5551
           },
           "high_prob": false,
-          "close": 86.31,
-          "atr": 0.0257,
-          "histogram": 0.0021,
+          "close": 196.1,
+          "atr": 2.3429,
+          "histogram": -0.5286,
           "hist_shrinking": false
+        }
+      },
+      "conclusion": "⏳ 暂无明显信号，建议等待",
+      "updated_at": "2026-08-16T11:27:07.616853",
+      "is_priority": false
+    },
+    "ICP-USDT-SWAP": {
+      "display": "ICP",
+      "price": 2.275,
+      "volume_24h": 483441074.025,
+      "signals": {
+        "5m": {
+          "timeframe": "5m",
+          "macd": 0.0016,
+          "dist_ratio": 0.36,
+          "direction": "上方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 1,
+          "ema52": {
+            "above": true,
+            "dist_pct": 0.3,
+            "slope": "水平→",
+            "near_ema52": true,
+            "ema52_value": 2.2672
+          },
+          "high_prob": false,
+          "close": 2.274,
+          "atr": 0.0036,
+          "histogram": -0.0007,
+          "hist_shrinking": true
         },
         "15m": {
           "timeframe": "15m",
-          "macd": -0.0022,
-          "dist_ratio": -0.08,
+          "macd": 0.0088,
+          "dist_ratio": 1.43,
+          "direction": "上方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 2,
+          "ema52": {
+            "above": true,
+            "dist_pct": 0.85,
+            "slope": "水平→",
+            "near_ema52": true,
+            "ema52_value": 2.2548
+          },
+          "high_prob": false,
+          "close": 2.274,
+          "atr": 0.0102,
+          "histogram": -0.0006,
+          "hist_shrinking": true
+        },
+        "30m": {
+          "timeframe": "30m",
+          "macd": 0.0084,
+          "dist_ratio": 1.3,
+          "direction": "上方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 3,
+          "ema52": {
+            "above": true,
+            "dist_pct": 1.01,
+            "slope": "水平→",
+            "near_ema52": false,
+            "ema52_value": 2.2513
+          },
+          "high_prob": false,
+          "close": 2.274,
+          "atr": 0.0119,
+          "histogram": 0.0077,
+          "hist_shrinking": true
+        },
+        "1h": {
+          "timeframe": "1h",
+          "macd": 0.0058,
+          "dist_ratio": 0.59,
+          "direction": "上方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 2,
+          "ema52": {
+            "above": true,
+            "dist_pct": 1.4,
+            "slope": "水平→",
+            "near_ema52": false,
+            "ema52_value": 2.2427
+          },
+          "high_prob": false,
+          "close": 2.274,
+          "atr": 0.016,
+          "histogram": 0.0084,
+          "hist_shrinking": false
+        },
+        "2h": {
+          "timeframe": "2h",
+          "macd": 0.0109,
+          "dist_ratio": 0.75,
+          "direction": "上方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 1,
+          "ema52": {
+            "above": true,
+            "dist_pct": 2.05,
+            "slope": "水平→",
+            "near_ema52": false,
+            "ema52_value": 2.2284
+          },
+          "high_prob": false,
+          "close": 2.274,
+          "atr": 0.0239,
+          "histogram": -0.0002,
+          "hist_shrinking": false
+        },
+        "4h": {
+          "timeframe": "4h",
+          "macd": 0.0162,
+          "dist_ratio": 0.96,
+          "direction": "上方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 3,
+          "ema52": {
+            "above": true,
+            "dist_pct": 3.1,
+            "slope": "向上↑",
+            "near_ema52": false,
+            "ema52_value": 2.2057
+          },
+          "high_prob": false,
+          "close": 2.274,
+          "atr": 0.0413,
+          "histogram": 0.0067,
+          "hist_shrinking": false
+        }
+      },
+      "conclusion": "⏳ 暂无明显信号，建议等待",
+      "updated_at": "2026-08-16T11:27:09.835549",
+      "is_priority": false
+    },
+    "BZ-USDT-SWAP": {
+      "display": "BZ",
+      "price": 86.29,
+      "volume_24h": 316621653.46000004,
+      "signals": {
+        "5m": {
+          "timeframe": "5m",
+          "macd": -0.002,
+          "dist_ratio": -0.16,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -1737,22 +1713,46 @@
           "sticky_bars": 0,
           "zero_cross_nth": 3,
           "ema52": {
-            "above": true,
+            "above": false,
             "dist_pct": 0.02,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 86.2902
+            "ema52_value": 86.3061
           },
           "high_prob": false,
-          "close": 86.31,
-          "atr": 0.0486,
-          "histogram": -0.0071,
-          "hist_shrinking": false
+          "close": 86.29,
+          "atr": 0.0214,
+          "histogram": 0.0049,
+          "hist_shrinking": true
+        },
+        "15m": {
+          "timeframe": "15m",
+          "macd": -0.002,
+          "dist_ratio": -0.07,
+          "direction": "下方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": true,
+          "sticky_bars": 0,
+          "zero_cross_nth": 3,
+          "ema52": {
+            "above": false,
+            "dist_pct": 0.0,
+            "slope": "水平→",
+            "near_ema52": true,
+            "ema52_value": 86.291
+          },
+          "high_prob": false,
+          "close": 86.29,
+          "atr": 0.0514,
+          "histogram": -0.0058,
+          "hist_shrinking": true
         },
         "30m": {
           "timeframe": "30m",
-          "macd": 0.0163,
-          "dist_ratio": 0.23,
+          "macd": 0.0147,
+          "dist_ratio": 0.21,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -1762,21 +1762,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": true,
-            "dist_pct": 0.06,
+            "dist_pct": 0.04,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 86.2543
+            "ema52_value": 86.2535
           },
           "high_prob": false,
-          "close": 86.31,
-          "atr": 0.0871,
-          "histogram": -0.0162,
-          "hist_shrinking": false
+          "close": 86.29,
+          "atr": 0.09,
+          "histogram": -0.0187,
+          "hist_shrinking": true
         },
         "1h": {
           "timeframe": "1h",
-          "macd": 0.0448,
-          "dist_ratio": 0.36,
+          "macd": 0.0432,
+          "dist_ratio": 0.34,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": -1,
@@ -1786,20 +1786,20 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": true,
-            "dist_pct": 0.11,
+            "dist_pct": 0.08,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 86.2175
+            "ema52_value": 86.2167
           },
           "high_prob": false,
-          "close": 86.31,
-          "atr": 0.1757,
-          "histogram": -0.0025,
+          "close": 86.29,
+          "atr": 0.1786,
+          "histogram": -0.0051,
           "hist_shrinking": true
         },
         "2h": {
           "timeframe": "2h",
-          "macd": 0.0411,
+          "macd": 0.0395,
           "dist_ratio": 0.11,
           "direction": "上方",
           "divergence": 0,
@@ -1810,21 +1810,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": true,
-            "dist_pct": 0.24,
+            "dist_pct": 0.22,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 86.1053
+            "ema52_value": 86.1045
           },
           "high_prob": false,
-          "close": 86.31,
-          "atr": 0.3,
-          "histogram": 0.0292,
+          "close": 86.29,
+          "atr": 0.3007,
+          "histogram": 0.0266,
           "hist_shrinking": true
         },
         "4h": {
           "timeframe": "4h",
-          "macd": 0.1228,
-          "dist_ratio": 0.22,
+          "macd": 0.1212,
+          "dist_ratio": 0.21,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -1834,36 +1834,36 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": true,
-            "dist_pct": 0.75,
+            "dist_pct": 0.73,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 85.6685
+            "ema52_value": 85.6678
           },
           "high_prob": false,
-          "close": 86.31,
+          "close": 86.29,
           "atr": 0.8629,
-          "histogram": -0.0876,
+          "histogram": -0.0901,
           "hist_shrinking": false
         }
       },
       "conclusion": "⏳ 暂无明显信号，建议等待",
-      "updated_at": "2026-08-16T11:03:37.371853",
+      "updated_at": "2026-08-16T11:27:12.215543",
       "is_priority": false
     },
     "XAG-USDT-SWAP": {
       "display": "XAG",
       "price": 65.08,
-      "volume_24h": 299275586.4,
+      "volume_24h": 306262379.96,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": 0.0024,
-          "dist_ratio": 0.3,
+          "macd": 0.0006,
+          "dist_ratio": 0.09,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
           "zero_cross": 0,
-          "near_zero": false,
+          "near_zero": true,
           "sticky_bars": 0,
           "zero_cross_nth": 4,
           "ema52": {
@@ -1871,18 +1871,18 @@
             "dist_pct": 0.02,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 65.0681
+            "ema52_value": 65.0691
           },
           "high_prob": false,
           "close": 65.08,
-          "atr": 0.0129,
-          "histogram": -0.0037,
+          "atr": 0.0114,
+          "histogram": -0.0027,
           "hist_shrinking": false
         },
         "15m": {
           "timeframe": "15m",
-          "macd": 0.0147,
-          "dist_ratio": 1.78,
+          "macd": 0.014,
+          "dist_ratio": 1.7,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -1895,12 +1895,12 @@
             "dist_pct": 0.06,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 65.0393
+            "ema52_value": 65.0408
           },
           "high_prob": false,
           "close": 65.08,
-          "atr": 0.0186,
-          "histogram": -0.0023,
+          "atr": 0.0193,
+          "histogram": -0.003,
           "hist_shrinking": true
         },
         "30m": {
@@ -1923,7 +1923,7 @@
           },
           "high_prob": false,
           "close": 65.08,
-          "atr": 0.0279,
+          "atr": 0.03,
           "histogram": 0.0047,
           "hist_shrinking": true
         },
@@ -1947,7 +1947,7 @@
           },
           "high_prob": false,
           "close": 65.08,
-          "atr": 0.0336,
+          "atr": 0.0357,
           "histogram": 0.0093,
           "hist_shrinking": true
         },
@@ -2001,42 +2001,42 @@
         }
       },
       "conclusion": "⏳ 暂无明显信号，建议等待",
-      "updated_at": "2026-08-16T11:03:39.467739",
+      "updated_at": "2026-08-16T11:27:14.410712",
       "is_priority": false
     },
     "XPT-USDT-SWAP": {
       "display": "XPT",
-      "price": 1753.6,
-      "volume_24h": 172294707.2,
+      "price": 1751.3,
+      "volume_24h": 172264873.2,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": 0.5386,
-          "dist_ratio": 1.43,
-          "direction": "上方",
+          "macd": -0.0641,
+          "dist_ratio": -0.17,
+          "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
+          "zero_cross": -1,
+          "near_zero": true,
           "sticky_bars": 0,
-          "zero_cross_nth": 1,
+          "zero_cross_nth": 2,
           "ema52": {
-            "above": true,
-            "dist_pct": 0.09,
+            "above": false,
+            "dist_pct": 0.04,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1752.0606
+            "ema52_value": 1752.0382
           },
           "high_prob": false,
-          "close": 1753.6,
-          "atr": 0.45,
-          "histogram": -0.1032,
+          "close": 1751.3,
+          "atr": 0.6786,
+          "histogram": -0.7019,
           "hist_shrinking": true
         },
         "15m": {
           "timeframe": "15m",
-          "macd": 1.218,
-          "dist_ratio": 2.91,
+          "macd": 0.9561,
+          "dist_ratio": 2.22,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -2046,21 +2046,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": true,
-            "dist_pct": 0.19,
+            "dist_pct": 0.06,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1750.3048
+            "ema52_value": 1750.3057
           },
           "high_prob": false,
-          "close": 1753.6,
-          "atr": 2.1143,
-          "histogram": 0.4,
+          "close": 1751.3,
+          "atr": 2.3571,
+          "histogram": -0.0735,
           "hist_shrinking": true
         },
         "30m": {
           "timeframe": "30m",
-          "macd": 1.3366,
-          "dist_ratio": 3.04,
+          "macd": 1.1531,
+          "dist_ratio": 2.62,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -2070,21 +2070,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": true,
-            "dist_pct": 0.25,
+            "dist_pct": 0.12,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1749.2101
+            "ema52_value": 1749.1233
           },
           "high_prob": false,
-          "close": 1753.6,
-          "atr": 2.0786,
-          "histogram": 0.925,
+          "close": 1751.3,
+          "atr": 2.3286,
+          "histogram": 0.6314,
           "hist_shrinking": true
         },
         "1h": {
           "timeframe": "1h",
-          "macd": 1.5739,
-          "dist_ratio": 0.47,
+          "macd": 1.3904,
+          "dist_ratio": 0.42,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -2094,21 +2094,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": true,
-            "dist_pct": 0.32,
+            "dist_pct": 0.2,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1747.932
+            "ema52_value": 1747.8452
           },
           "high_prob": false,
-          "close": 1753.6,
-          "atr": 1.7143,
-          "histogram": 0.977,
+          "close": 1751.3,
+          "atr": 1.9643,
+          "histogram": 0.6835,
           "hist_shrinking": true
         },
         "2h": {
           "timeframe": "2h",
-          "macd": 1.8952,
-          "dist_ratio": 0.54,
+          "macd": 1.7117,
+          "dist_ratio": 0.49,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -2118,21 +2118,21 @@
           "zero_cross_nth": 4,
           "ema52": {
             "above": true,
-            "dist_pct": 0.33,
+            "dist_pct": 0.2,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1747.845
+            "ema52_value": 1747.7582
           },
           "high_prob": false,
-          "close": 1753.6,
-          "atr": 2.4214,
-          "histogram": 0.8597,
-          "hist_shrinking": false
+          "close": 1751.3,
+          "atr": 2.5929,
+          "histogram": 0.5662,
+          "hist_shrinking": true
         },
         "4h": {
           "timeframe": "4h",
-          "macd": 0.1998,
-          "dist_ratio": 0.02,
+          "macd": 0.0164,
+          "dist_ratio": 0.0,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -2142,185 +2142,31 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": true,
-            "dist_pct": 0.58,
+            "dist_pct": 0.45,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1743.5652
+            "ema52_value": 1743.4785
           },
           "high_prob": false,
-          "close": 1753.6,
+          "close": 1751.3,
           "atr": 8.3429,
-          "histogram": 2.7153,
+          "histogram": 2.4218,
           "hist_shrinking": false
         }
       },
       "conclusion": "🟠 建议做空，注意风险（4H多头环境，逆势）",
-      "updated_at": "2026-08-16T11:03:41.592279",
-      "is_priority": false
-    },
-    "FIL-USDT-SWAP": {
-      "display": "FIL",
-      "price": 0.6805,
-      "volume_24h": 144830677.539,
-      "signals": {
-        "5m": {
-          "timeframe": "5m",
-          "macd": 0.0003,
-          "dist_ratio": 0.89,
-          "direction": "上方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 3,
-          "ema52": {
-            "above": true,
-            "dist_pct": 0.16,
-            "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 0.6793
-          },
-          "high_prob": false,
-          "close": 0.6804,
-          "atr": 0.001,
-          "histogram": -0.0003,
-          "hist_shrinking": false
-        },
-        "15m": {
-          "timeframe": "15m",
-          "macd": 0.0007,
-          "dist_ratio": 0.47,
-          "direction": "上方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 1,
-          "ema52": {
-            "above": true,
-            "dist_pct": 0.14,
-            "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 0.6797
-          },
-          "high_prob": false,
-          "close": 0.6806,
-          "atr": 0.0013,
-          "histogram": 0.0004,
-          "hist_shrinking": true
-        },
-        "30m": {
-          "timeframe": "30m",
-          "macd": -0.0005,
-          "dist_ratio": -0.2,
-          "direction": "下方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": true,
-          "sticky_bars": 0,
-          "zero_cross_nth": 1,
-          "ema52": {
-            "above": false,
-            "dist_pct": 0.08,
-            "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 0.6811
-          },
-          "high_prob": false,
-          "close": 0.6806,
-          "atr": 0.0018,
-          "histogram": 0.0015,
-          "hist_shrinking": true
-        },
-        "1h": {
-          "timeframe": "1h",
-          "macd": -0.0014,
-          "dist_ratio": -0.53,
-          "direction": "下方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 1,
-          "ema52": {
-            "above": false,
-            "dist_pct": 0.19,
-            "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 0.6817
-          },
-          "high_prob": false,
-          "close": 0.6804,
-          "atr": 0.0039,
-          "histogram": 0.0001,
-          "hist_shrinking": false
-        },
-        "2h": {
-          "timeframe": "2h",
-          "macd": -0.0005,
-          "dist_ratio": -0.14,
-          "direction": "下方",
-          "divergence": 0,
-          "hidden_div": -1,
-          "zero_cross": 0,
-          "near_zero": true,
-          "sticky_bars": 0,
-          "zero_cross_nth": 3,
-          "ema52": {
-            "above": false,
-            "dist_pct": 0.51,
-            "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 0.6841
-          },
-          "high_prob": false,
-          "close": 0.6806,
-          "atr": 0.0058,
-          "histogram": -0.0015,
-          "hist_shrinking": false
-        },
-        "4h": {
-          "timeframe": "4h",
-          "macd": -0.0024,
-          "dist_ratio": -0.71,
-          "direction": "下方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 3,
-          "ema52": {
-            "above": false,
-            "dist_pct": 1.38,
-            "slope": "水平→",
-            "near_ema52": false,
-            "ema52_value": 0.6901
-          },
-          "high_prob": false,
-          "close": 0.6806,
-          "atr": 0.0104,
-          "histogram": 0.0019,
-          "hist_shrinking": true
-        }
-      },
-      "conclusion": "⏳ 暂无明显信号，建议等待",
-      "updated_at": "2026-08-16T11:03:44.577925",
+      "updated_at": "2026-08-16T11:27:16.632102",
       "is_priority": false
     },
     "SOL-USDT-SWAP": {
       "display": "SOL",
-      "price": 75.21,
-      "volume_24h": 142057141.37759998,
+      "price": 75.24,
+      "volume_24h": 142807036.086,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": -0.0423,
-          "dist_ratio": -1.93,
+          "macd": -0.0287,
+          "dist_ratio": -1.37,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -2330,21 +2176,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.14,
+            "dist_pct": 0.09,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 75.3165
+            "ema52_value": 75.3004
           },
           "high_prob": false,
-          "close": 75.21,
-          "atr": 0.0471,
-          "histogram": 0.0064,
+          "close": 75.23,
+          "atr": 0.0364,
+          "histogram": 0.0172,
           "hist_shrinking": false
         },
         "15m": {
           "timeframe": "15m",
-          "macd": -0.0573,
-          "dist_ratio": -2.24,
+          "macd": -0.0553,
+          "dist_ratio": -2.13,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -2352,47 +2198,47 @@
           "near_zero": false,
           "sticky_bars": 0,
           "zero_cross_nth": 2,
+          "ema52": {
+            "above": false,
+            "dist_pct": 0.18,
+            "slope": "水平→",
+            "near_ema52": true,
+            "ema52_value": 75.3687
+          },
+          "high_prob": false,
+          "close": 75.23,
+          "atr": 0.075,
+          "histogram": -0.0237,
+          "hist_shrinking": false
+        },
+        "30m": {
+          "timeframe": "30m",
+          "macd": -0.0473,
+          "dist_ratio": -1.65,
+          "direction": "下方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 3,
           "ema52": {
             "above": false,
             "dist_pct": 0.22,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 75.3735
+            "ema52_value": 75.3953
           },
           "high_prob": false,
-          "close": 75.21,
-          "atr": 0.0757,
-          "histogram": -0.033,
-          "hist_shrinking": false
-        },
-        "30m": {
-          "timeframe": "30m",
-          "macd": -0.0489,
-          "dist_ratio": -1.71,
-          "direction": "下方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 3,
-          "ema52": {
-            "above": false,
-            "dist_pct": 0.24,
-            "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 75.3946
-          },
-          "high_prob": false,
-          "close": 75.21,
-          "atr": 0.1143,
-          "histogram": -0.0467,
+          "close": 75.23,
+          "atr": 0.1164,
+          "histogram": -0.0441,
           "hist_shrinking": true
         },
         "1h": {
           "timeframe": "1h",
-          "macd": -0.0357,
-          "dist_ratio": -0.45,
+          "macd": -0.0341,
+          "dist_ratio": -0.43,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -2402,21 +2248,21 @@
           "zero_cross_nth": 5,
           "ema52": {
             "above": false,
-            "dist_pct": 0.32,
+            "dist_pct": 0.3,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 75.4537
+            "ema52_value": 75.4545
           },
           "high_prob": false,
-          "close": 75.21,
-          "atr": 0.185,
-          "histogram": -0.0508,
+          "close": 75.23,
+          "atr": 0.1871,
+          "histogram": -0.0483,
           "hist_shrinking": true
         },
         "2h": {
           "timeframe": "2h",
-          "macd": -0.0772,
-          "dist_ratio": -0.89,
+          "macd": -0.0756,
+          "dist_ratio": -0.87,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -2426,21 +2272,21 @@
           "zero_cross_nth": 4,
           "ema52": {
             "above": false,
-            "dist_pct": 0.46,
+            "dist_pct": 0.43,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 75.5553
+            "ema52_value": 75.5561
           },
           "high_prob": false,
-          "close": 75.21,
+          "close": 75.23,
           "atr": 0.2686,
-          "histogram": 0.0104,
+          "histogram": 0.0129,
           "hist_shrinking": true
         },
         "4h": {
           "timeframe": "4h",
-          "macd": -0.1186,
-          "dist_ratio": -0.39,
+          "macd": -0.117,
+          "dist_ratio": -0.38,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -2450,128 +2296,56 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.29,
+            "dist_pct": 0.26,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 75.4271
+            "ema52_value": 75.4278
           },
           "high_prob": false,
-          "close": 75.21,
+          "close": 75.23,
           "atr": 0.4707,
-          "histogram": -0.0366,
+          "histogram": -0.034,
           "hist_shrinking": true
         }
       },
       "conclusion": "🟡 部分周期低位，信号较弱，可观察",
-      "updated_at": "2026-08-16T11:03:46.728720",
+      "updated_at": "2026-08-16T11:27:19.579363",
       "is_priority": true
     },
-    "DASH-USDT-SWAP": {
-      "display": "DASH",
-      "price": 29.75,
-      "volume_24h": 140164507.0,
+    "FIL-USDT-SWAP": {
+      "display": "FIL",
+      "price": 0.6808,
+      "volume_24h": 142598704.8056,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": 0.0264,
-          "dist_ratio": 3.53,
+          "macd": 0.0003,
+          "dist_ratio": 0.95,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
           "zero_cross": 0,
           "near_zero": false,
           "sticky_bars": 0,
-          "zero_cross_nth": 3,
+          "zero_cross_nth": 2,
           "ema52": {
             "above": true,
-            "dist_pct": 0.3,
+            "dist_pct": 0.22,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 29.6506
+            "ema52_value": 0.6795
           },
           "high_prob": false,
-          "close": 29.74,
-          "atr": 0.0407,
-          "histogram": 0.0304,
-          "hist_shrinking": true
+          "close": 0.681,
+          "atr": 0.0006,
+          "histogram": -0.0,
+          "hist_shrinking": false
         },
         "15m": {
           "timeframe": "15m",
-          "macd": 0.0089,
-          "dist_ratio": 0.19,
+          "macd": 0.0007,
+          "dist_ratio": 0.51,
           "direction": "上方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": true,
-          "sticky_bars": 0,
-          "zero_cross_nth": 2,
-          "ema52": {
-            "above": true,
-            "dist_pct": 0.14,
-            "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 29.6988
-          },
-          "high_prob": false,
-          "close": 29.74,
-          "atr": 0.0629,
-          "histogram": 0.0312,
-          "hist_shrinking": false
-        },
-        "30m": {
-          "timeframe": "30m",
-          "macd": -0.0314,
-          "dist_ratio": -0.76,
-          "direction": "下方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 2,
-          "ema52": {
-            "above": false,
-            "dist_pct": 0.17,
-            "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 29.7902
-          },
-          "high_prob": false,
-          "close": 29.74,
-          "atr": 0.0964,
-          "histogram": 0.0482,
-          "hist_shrinking": false
-        },
-        "1h": {
-          "timeframe": "1h",
-          "macd": -0.0808,
-          "dist_ratio": -1.48,
-          "direction": "下方",
-          "divergence": 0,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 2,
-          "ema52": {
-            "above": false,
-            "dist_pct": 0.56,
-            "slope": "水平→",
-            "near_ema52": true,
-            "ema52_value": 29.9083
-          },
-          "high_prob": false,
-          "close": 29.74,
-          "atr": 0.15,
-          "histogram": 0.016,
-          "hist_shrinking": false
-        },
-        "2h": {
-          "timeframe": "2h",
-          "macd": -0.128,
-          "dist_ratio": -0.96,
-          "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
           "zero_cross": 0,
@@ -2579,56 +2353,46 @@
           "sticky_bars": 0,
           "zero_cross_nth": 1,
           "ema52": {
-            "above": false,
-            "dist_pct": 1.21,
-            "slope": "向下↓",
-            "near_ema52": false,
-            "ema52_value": 30.1044
+            "above": true,
+            "dist_pct": 0.19,
+            "slope": "水平→",
+            "near_ema52": true,
+            "ema52_value": 0.6797
           },
           "high_prob": false,
-          "close": 29.74,
-          "atr": 0.1993,
-          "histogram": -0.0312,
+          "close": 0.681,
+          "atr": 0.0012,
+          "histogram": 0.0004,
           "hist_shrinking": false
         },
-        "4h": {
-          "timeframe": "4h",
-          "macd": -0.2174,
-          "dist_ratio": -1.47,
+        "30m": {
+          "timeframe": "30m",
+          "macd": -0.0004,
+          "dist_ratio": -0.19,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
           "zero_cross": 0,
-          "near_zero": false,
+          "near_zero": true,
           "sticky_bars": 0,
-          "zero_cross_nth": 2,
+          "zero_cross_nth": 1,
           "ema52": {
             "above": false,
-            "dist_pct": 2.19,
-            "slope": "向下↓",
-            "near_ema52": false,
-            "ema52_value": 30.4074
+            "dist_pct": 0.02,
+            "slope": "水平→",
+            "near_ema52": true,
+            "ema52_value": 0.6811
           },
           "high_prob": false,
-          "close": 29.74,
-          "atr": 0.3186,
-          "histogram": -0.0169,
+          "close": 0.681,
+          "atr": 0.0018,
+          "histogram": 0.0016,
           "hist_shrinking": false
-        }
-      },
-      "conclusion": "🟠 部分周期高位，信号较弱，可观察",
-      "updated_at": "2026-08-16T11:03:49.683853",
-      "is_priority": false
-    },
-    "SNDK-USDT-SWAP": {
-      "display": "SNDK",
-      "price": 1659.75,
-      "volume_24h": 139326387.60975,
-      "signals": {
-        "5m": {
-          "timeframe": "5m",
-          "macd": -0.4329,
-          "dist_ratio": -0.91,
+        },
+        "1h": {
+          "timeframe": "1h",
+          "macd": -0.0014,
+          "dist_ratio": -0.51,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -2641,42 +2405,278 @@
             "dist_pct": 0.11,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1661.532
+            "ema52_value": 0.6817
           },
           "high_prob": false,
-          "close": 1659.64,
-          "atr": 1.4264,
-          "histogram": 0.2044,
-          "hist_shrinking": true
+          "close": 0.681,
+          "atr": 0.0039,
+          "histogram": 0.0002,
+          "hist_shrinking": false
         },
-        "15m": {
-          "timeframe": "15m",
-          "macd": -0.2456,
-          "dist_ratio": -0.22,
+        "2h": {
+          "timeframe": "2h",
+          "macd": -0.0005,
+          "dist_ratio": -0.13,
           "direction": "下方",
           "divergence": 0,
-          "hidden_div": 0,
+          "hidden_div": -1,
           "zero_cross": 0,
           "near_zero": true,
           "sticky_bars": 0,
           "zero_cross_nth": 3,
           "ema52": {
             "above": false,
+            "dist_pct": 0.46,
+            "slope": "水平→",
+            "near_ema52": true,
+            "ema52_value": 0.6841
+          },
+          "high_prob": false,
+          "close": 0.681,
+          "atr": 0.0058,
+          "histogram": -0.0014,
+          "hist_shrinking": false
+        },
+        "4h": {
+          "timeframe": "4h",
+          "macd": -0.0024,
+          "dist_ratio": -0.7,
+          "direction": "下方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 3,
+          "ema52": {
+            "above": false,
+            "dist_pct": 1.32,
+            "slope": "水平→",
+            "near_ema52": false,
+            "ema52_value": 0.6901
+          },
+          "high_prob": false,
+          "close": 0.681,
+          "atr": 0.0104,
+          "histogram": 0.002,
+          "hist_shrinking": true
+        }
+      },
+      "conclusion": "⏳ 暂无明显信号，建议等待",
+      "updated_at": "2026-08-16T11:27:22.735963",
+      "is_priority": false
+    },
+    "DASH-USDT-SWAP": {
+      "display": "DASH",
+      "price": 29.8,
+      "volume_24h": 141112267.8,
+      "signals": {
+        "5m": {
+          "timeframe": "5m",
+          "macd": 0.0374,
+          "dist_ratio": 4.41,
+          "direction": "上方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 3,
+          "ema52": {
+            "above": true,
+            "dist_pct": 0.41,
+            "slope": "水平→",
+            "near_ema52": true,
+            "ema52_value": 29.669
+          },
+          "high_prob": false,
+          "close": 29.79,
+          "atr": 0.0429,
+          "histogram": 0.0239,
+          "hist_shrinking": false
+        },
+        "15m": {
+          "timeframe": "15m",
+          "macd": 0.0179,
+          "dist_ratio": 0.39,
+          "direction": "上方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 2,
+          "ema52": {
+            "above": true,
+            "dist_pct": 0.3,
+            "slope": "水平→",
+            "near_ema52": true,
+            "ema52_value": 29.7022
+          },
+          "high_prob": false,
+          "close": 29.79,
+          "atr": 0.0664,
+          "histogram": 0.0393,
+          "hist_shrinking": false
+        },
+        "30m": {
+          "timeframe": "30m",
+          "macd": -0.0274,
+          "dist_ratio": -0.66,
+          "direction": "下方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 2,
+          "ema52": {
+            "above": false,
             "dist_pct": 0.01,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1659.8028
+            "ema52_value": 29.7921
           },
           "high_prob": false,
-          "close": 1659.64,
-          "atr": 2.0336,
-          "histogram": -1.0321,
+          "close": 29.79,
+          "atr": 0.0993,
+          "histogram": 0.0546,
+          "hist_shrinking": false
+        },
+        "1h": {
+          "timeframe": "1h",
+          "macd": -0.0768,
+          "dist_ratio": -1.41,
+          "direction": "下方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 2,
+          "ema52": {
+            "above": false,
+            "dist_pct": 0.4,
+            "slope": "水平→",
+            "near_ema52": true,
+            "ema52_value": 29.9101
+          },
+          "high_prob": false,
+          "close": 29.79,
+          "atr": 0.1529,
+          "histogram": 0.0224,
+          "hist_shrinking": false
+        },
+        "2h": {
+          "timeframe": "2h",
+          "macd": -0.124,
+          "dist_ratio": -0.93,
+          "direction": "下方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 1,
+          "ema52": {
+            "above": false,
+            "dist_pct": 1.05,
+            "slope": "向下↓",
+            "near_ema52": false,
+            "ema52_value": 30.1063
+          },
+          "high_prob": false,
+          "close": 29.79,
+          "atr": 0.2,
+          "histogram": -0.0248,
+          "hist_shrinking": false
+        },
+        "4h": {
+          "timeframe": "4h",
+          "macd": -0.2134,
+          "dist_ratio": -1.44,
+          "direction": "下方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 2,
+          "ema52": {
+            "above": false,
+            "dist_pct": 2.04,
+            "slope": "向下↓",
+            "near_ema52": false,
+            "ema52_value": 30.4093
+          },
+          "high_prob": false,
+          "close": 29.79,
+          "atr": 0.3193,
+          "histogram": -0.0106,
+          "hist_shrinking": false
+        }
+      },
+      "conclusion": "🟠 部分周期高位，信号较弱，可观察",
+      "updated_at": "2026-08-16T11:27:25.002736",
+      "is_priority": false
+    },
+    "SNDK-USDT-SWAP": {
+      "display": "SNDK",
+      "price": 1658.6,
+      "volume_24h": 138702533.0806,
+      "signals": {
+        "5m": {
+          "timeframe": "5m",
+          "macd": -0.7412,
+          "dist_ratio": -1.47,
+          "direction": "下方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 1,
+          "ema52": {
+            "above": false,
+            "dist_pct": 0.15,
+            "slope": "水平→",
+            "near_ema52": true,
+            "ema52_value": 1661.0413
+          },
+          "high_prob": false,
+          "close": 1658.5,
+          "atr": 1.1607,
+          "histogram": -0.2233,
+          "hist_shrinking": true
+        },
+        "15m": {
+          "timeframe": "15m",
+          "macd": -0.4947,
+          "dist_ratio": -0.44,
+          "direction": "下方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 3,
+          "ema52": {
+            "above": false,
+            "dist_pct": 0.07,
+            "slope": "水平→",
+            "near_ema52": true,
+            "ema52_value": 1659.7169
+          },
+          "high_prob": false,
+          "close": 1658.5,
+          "atr": 2.2,
+          "histogram": -1.1999,
           "hist_shrinking": true
         },
         "30m": {
           "timeframe": "30m",
-          "macd": 1.5115,
-          "dist_ratio": 0.54,
+          "macd": 1.4205,
+          "dist_ratio": 0.5,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -2686,20 +2686,20 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": true,
-            "dist_pct": 0.36,
+            "dist_pct": 0.29,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1653.7056
+            "ema52_value": 1653.6626
           },
           "high_prob": false,
-          "close": 1659.64,
-          "atr": 2.995,
-          "histogram": -1.6236,
+          "close": 1658.5,
+          "atr": 3.1443,
+          "histogram": -1.7691,
           "hist_shrinking": true
         },
         "1h": {
           "timeframe": "1h",
-          "macd": 6.0662,
+          "macd": 5.9752,
           "dist_ratio": 0.21,
           "direction": "上方",
           "divergence": 0,
@@ -2710,20 +2710,20 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": true,
-            "dist_pct": 2.2,
+            "dist_pct": 2.14,
             "slope": "向上↑",
             "near_ema52": false,
-            "ema52_value": 1623.8661
+            "ema52_value": 1623.8231
           },
           "high_prob": false,
-          "close": 1659.64,
-          "atr": 4.6986,
-          "histogram": -2.8527,
+          "close": 1658.5,
+          "atr": 4.8479,
+          "histogram": -2.9982,
           "hist_shrinking": true
         },
         "2h": {
           "timeframe": "2h",
-          "macd": 30.4691,
+          "macd": 30.3782,
           "dist_ratio": 0.72,
           "direction": "上方",
           "divergence": 0,
@@ -2734,20 +2734,20 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": true,
-            "dist_pct": 7.1,
+            "dist_pct": 7.03,
             "slope": "向上↑",
             "near_ema52": false,
-            "ema52_value": 1549.6617
+            "ema52_value": 1549.6187
           },
           "high_prob": false,
-          "close": 1659.64,
+          "close": 1658.5,
           "atr": 5.545,
-          "histogram": -16.5988,
-          "hist_shrinking": false
+          "histogram": -16.7443,
+          "hist_shrinking": true
         },
         "4h": {
           "timeframe": "4h",
-          "macd": 80.4993,
+          "macd": 80.4083,
           "dist_ratio": 2.37,
           "direction": "上方",
           "divergence": 0,
@@ -2758,55 +2758,55 @@
           "zero_cross_nth": 4,
           "ema52": {
             "above": true,
-            "dist_pct": 13.94,
+            "dist_pct": 13.86,
             "slope": "向上↑",
             "near_ema52": false,
-            "ema52_value": 1456.6191
+            "ema52_value": 1456.5761
           },
           "high_prob": false,
-          "close": 1659.64,
+          "close": 1658.5,
           "atr": 27.3407,
-          "histogram": -11.8321,
+          "histogram": -11.9776,
           "hist_shrinking": true
         }
       },
       "conclusion": "🟠 部分周期高位，信号较弱，可观察",
-      "updated_at": "2026-08-16T11:03:52.474367",
+      "updated_at": "2026-08-16T11:27:28.159108",
       "is_priority": false
     },
     "CL-USDT-SWAP": {
       "display": "CL",
       "price": 81.3,
-      "volume_24h": 135063690.0,
+      "volume_24h": 131923396.19999999,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": -0.0071,
-          "dist_ratio": -0.59,
+          "macd": -0.0021,
+          "dist_ratio": -0.17,
           "direction": "下方",
           "divergence": 0,
-          "hidden_div": 1,
+          "hidden_div": 0,
           "zero_cross": 0,
-          "near_zero": false,
+          "near_zero": true,
           "sticky_bars": 0,
-          "zero_cross_nth": 5,
+          "zero_cross_nth": 4,
           "ema52": {
             "above": true,
             "dist_pct": 0.0,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 81.3071
+            "ema52_value": 81.3077
           },
           "high_prob": false,
           "close": 81.31,
-          "atr": 0.0321,
-          "histogram": -0.0014,
-          "hist_shrinking": false
+          "atr": 0.0307,
+          "histogram": 0.0049,
+          "hist_shrinking": true
         },
         "15m": {
           "timeframe": "15m",
-          "macd": 0.0063,
-          "dist_ratio": 0.23,
+          "macd": 0.0069,
+          "dist_ratio": 0.27,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -2816,15 +2816,15 @@
           "zero_cross_nth": 4,
           "ema52": {
             "above": true,
-            "dist_pct": 0.05,
+            "dist_pct": 0.04,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 81.2727
+            "ema52_value": 81.2745
           },
           "high_prob": false,
           "close": 81.31,
-          "atr": 0.0586,
-          "histogram": -0.011,
+          "atr": 0.0579,
+          "histogram": -0.0081,
           "hist_shrinking": false
         },
         "30m": {
@@ -2925,42 +2925,42 @@
         }
       },
       "conclusion": "⏳ 暂无明显信号，建议等待",
-      "updated_at": "2026-08-16T11:03:55.421617",
+      "updated_at": "2026-08-16T11:27:31.151754",
       "is_priority": false
     },
     "TRUMP-USDT-SWAP": {
       "display": "TRUMP",
-      "price": 1.391,
-      "volume_24h": 110282554.23900001,
+      "price": 1.394,
+      "volume_24h": 111273839.116,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": -0.001,
-          "dist_ratio": -1.43,
-          "direction": "下方",
+          "macd": 0.0,
+          "dist_ratio": 0.0,
+          "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
+          "zero_cross": 1,
+          "near_zero": true,
           "sticky_bars": 0,
-          "zero_cross_nth": 2,
+          "zero_cross_nth": 3,
           "ema52": {
-            "above": false,
-            "dist_pct": 0.16,
+            "above": true,
+            "dist_pct": 0.05,
             "slope": "水平→",
             "near_ema52": true,
             "ema52_value": 1.3933
           },
           "high_prob": false,
-          "close": 1.391,
-          "atr": 0.0024,
-          "histogram": 0.0002,
+          "close": 1.394,
+          "atr": 0.0021,
+          "histogram": 0.0011,
           "hist_shrinking": false
         },
         "15m": {
           "timeframe": "15m",
-          "macd": -0.0017,
-          "dist_ratio": -0.88,
+          "macd": -0.0013,
+          "dist_ratio": -0.68,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -2970,21 +2970,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.44,
+            "dist_pct": 0.22,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1.3971
+            "ema52_value": 1.397
           },
           "high_prob": false,
-          "close": 1.391,
-          "atr": 0.0044,
-          "histogram": -0.0004,
+          "close": 1.394,
+          "atr": 0.0046,
+          "histogram": 0.0002,
           "hist_shrinking": false
         },
         "30m": {
           "timeframe": "30m",
-          "macd": -0.0033,
-          "dist_ratio": -1.38,
+          "macd": -0.0031,
+          "dist_ratio": -1.28,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -2994,21 +2994,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.73,
+            "dist_pct": 0.53,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 1.4013
+            "ema52_value": 1.4014
           },
           "high_prob": false,
-          "close": 1.391,
-          "atr": 0.0059,
-          "histogram": -0.0,
+          "close": 1.394,
+          "atr": 0.0061,
+          "histogram": 0.0003,
           "hist_shrinking": false
         },
         "1h": {
           "timeframe": "1h",
-          "macd": -0.0049,
-          "dist_ratio": -1.0,
+          "macd": -0.0047,
+          "dist_ratio": -0.95,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -3018,45 +3018,21 @@
           "zero_cross_nth": 1,
           "ema52": {
             "above": false,
-            "dist_pct": 1.03,
+            "dist_pct": 0.82,
             "slope": "水平→",
-            "near_ema52": false,
-            "ema52_value": 1.4055
+            "near_ema52": true,
+            "ema52_value": 1.4056
           },
           "high_prob": false,
-          "close": 1.391,
-          "atr": 0.0091,
-          "histogram": -0.0015,
+          "close": 1.394,
+          "atr": 0.0092,
+          "histogram": -0.0011,
           "hist_shrinking": false
         },
         "2h": {
           "timeframe": "2h",
-          "macd": -0.0053,
-          "dist_ratio": -0.54,
-          "direction": "下方",
-          "divergence": 1,
-          "hidden_div": 0,
-          "zero_cross": 0,
-          "near_zero": false,
-          "sticky_bars": 0,
-          "zero_cross_nth": 2,
-          "ema52": {
-            "above": false,
-            "dist_pct": 1.81,
-            "slope": "向下↓",
-            "near_ema52": false,
-            "ema52_value": 1.4167
-          },
-          "high_prob": false,
-          "close": 1.391,
-          "atr": 0.012,
-          "histogram": -0.0032,
-          "hist_shrinking": true
-        },
-        "4h": {
-          "timeframe": "4h",
-          "macd": -0.0128,
-          "dist_ratio": -1.33,
+          "macd": -0.0051,
+          "dist_ratio": -0.51,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -3066,32 +3042,56 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 3.08,
+            "dist_pct": 1.61,
             "slope": "向下↓",
             "near_ema52": false,
-            "ema52_value": 1.4351
+            "ema52_value": 1.4168
           },
           "high_prob": false,
-          "close": 1.391,
+          "close": 1.394,
+          "atr": 0.012,
+          "histogram": -0.0028,
+          "hist_shrinking": false
+        },
+        "4h": {
+          "timeframe": "4h",
+          "macd": -0.0125,
+          "dist_ratio": -1.3,
+          "direction": "下方",
+          "divergence": 0,
+          "hidden_div": 0,
+          "zero_cross": 0,
+          "near_zero": false,
+          "sticky_bars": 0,
+          "zero_cross_nth": 2,
+          "ema52": {
+            "above": false,
+            "dist_pct": 2.87,
+            "slope": "向下↓",
+            "near_ema52": false,
+            "ema52_value": 1.4352
+          },
+          "high_prob": false,
+          "close": 1.394,
           "atr": 0.0218,
-          "histogram": 0.0027,
+          "histogram": 0.0031,
           "hist_shrinking": true
         }
       },
       "conclusion": "⏳ 暂无明显信号，建议等待",
-      "updated_at": "2026-08-16T11:03:57.650869",
+      "updated_at": "2026-08-16T11:27:33.369996",
       "is_priority": false
     },
     "BCH-USDT-SWAP": {
       "display": "BCH",
-      "price": 203.7,
-      "volume_24h": 102563907.39,
+      "price": 203.8,
+      "volume_24h": 101494906.74000001,
       "signals": {
         "5m": {
           "timeframe": "5m",
-          "macd": -0.027,
-          "dist_ratio": -0.28,
-          "direction": "下方",
+          "macd": 0.0232,
+          "dist_ratio": 0.25,
+          "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
           "zero_cross": 0,
@@ -3100,21 +3100,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": true,
-            "dist_pct": 0.19,
+            "dist_pct": 0.07,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 203.6176
+            "ema52_value": 203.6496
           },
           "high_prob": false,
-          "close": 204.0,
-          "atr": 0.1429,
-          "histogram": 0.0013,
-          "hist_shrinking": false
+          "close": 203.8,
+          "atr": 0.1143,
+          "histogram": 0.0538,
+          "hist_shrinking": true
         },
         "15m": {
           "timeframe": "15m",
-          "macd": 0.1038,
-          "dist_ratio": 0.52,
+          "macd": 0.0913,
+          "dist_ratio": 0.47,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": 0,
@@ -3124,21 +3124,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": true,
-            "dist_pct": 0.18,
+            "dist_pct": 0.08,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 203.6351
+            "ema52_value": 203.6338
           },
           "high_prob": false,
-          "close": 204.0,
-          "atr": 0.2929,
-          "histogram": 0.0136,
+          "close": 203.8,
+          "atr": 0.2786,
+          "histogram": -0.0042,
           "hist_shrinking": false
         },
         "30m": {
           "timeframe": "30m",
-          "macd": -0.0001,
-          "dist_ratio": -0.0,
+          "macd": -0.0161,
+          "dist_ratio": -0.06,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -3147,22 +3147,22 @@
           "sticky_bars": 0,
           "zero_cross_nth": 2,
           "ema52": {
-            "above": true,
-            "dist_pct": 0.03,
+            "above": false,
+            "dist_pct": 0.06,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 203.9319
+            "ema52_value": 203.9243
           },
           "high_prob": false,
-          "close": 204.0,
+          "close": 203.8,
           "atr": 0.3857,
-          "histogram": 0.2038,
-          "hist_shrinking": false
+          "histogram": 0.1783,
+          "hist_shrinking": true
         },
         "1h": {
           "timeframe": "1h",
-          "macd": -0.2424,
-          "dist_ratio": -0.27,
+          "macd": -0.2584,
+          "dist_ratio": -0.28,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -3172,21 +3172,21 @@
           "zero_cross_nth": 3,
           "ema52": {
             "above": false,
-            "dist_pct": 0.41,
+            "dist_pct": 0.5,
             "slope": "水平→",
             "near_ema52": true,
-            "ema52_value": 204.8337
+            "ema52_value": 204.8261
           },
           "high_prob": false,
-          "close": 204.0,
+          "close": 203.8,
           "atr": 0.6214,
-          "histogram": 0.185,
+          "histogram": 0.1595,
           "hist_shrinking": false
         },
         "2h": {
           "timeframe": "2h",
-          "macd": -0.8895,
-          "dist_ratio": -0.79,
+          "macd": -0.9054,
+          "dist_ratio": -0.8,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -3196,21 +3196,21 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 1.4,
+            "dist_pct": 1.49,
             "slope": "向下↓",
             "near_ema52": false,
-            "ema52_value": 206.8874
+            "ema52_value": 206.8799
           },
           "high_prob": false,
-          "close": 204.0,
+          "close": 203.8,
           "atr": 1.2071,
-          "histogram": 0.3867,
+          "histogram": 0.3612,
           "hist_shrinking": false
         },
         "4h": {
           "timeframe": "4h",
-          "macd": -2.2028,
-          "dist_ratio": -2.14,
+          "macd": -2.2187,
+          "dist_ratio": -2.15,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -3220,20 +3220,20 @@
           "zero_cross_nth": 3,
           "ema52": {
             "above": false,
-            "dist_pct": 2.55,
+            "dist_pct": 2.64,
             "slope": "向下↓",
             "near_ema52": false,
-            "ema52_value": 209.3284
+            "ema52_value": 209.3208
           },
           "high_prob": false,
-          "close": 204.0,
+          "close": 203.8,
           "atr": 2.1429,
-          "histogram": 0.2737,
+          "histogram": 0.2482,
           "hist_shrinking": false
         }
       },
       "conclusion": "🟡 部分周期低位，信号较弱，可观察",
-      "updated_at": "2026-08-16T11:03:59.764514",
+      "updated_at": "2026-08-16T11:27:35.580055",
       "is_priority": false
     },
     "DOGE-USDT-SWAP": {
@@ -3244,17 +3244,17 @@
         "5m": {
           "timeframe": "5m",
           "macd": -0.0,
-          "dist_ratio": -0.43,
+          "dist_ratio": -0.12,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
           "zero_cross": 0,
-          "near_zero": false,
+          "near_zero": true,
           "sticky_bars": 0,
           "zero_cross_nth": 2,
           "ema52": {
-            "above": true,
-            "dist_pct": 0.01,
+            "above": false,
+            "dist_pct": 0.02,
             "slope": "水平→",
             "near_ema52": true,
             "ema52_value": 0.0698
@@ -3263,22 +3263,22 @@
           "close": 0.0698,
           "atr": 0.0,
           "histogram": 0.0,
-          "hist_shrinking": false
+          "hist_shrinking": true
         },
         "15m": {
           "timeframe": "15m",
           "macd": 0.0,
-          "dist_ratio": 0.01,
+          "dist_ratio": 0.03,
           "direction": "上方",
           "divergence": 0,
           "hidden_div": -1,
-          "zero_cross": 1,
+          "zero_cross": 0,
           "near_zero": true,
           "sticky_bars": 0,
           "zero_cross_nth": 4,
           "ema52": {
             "above": false,
-            "dist_pct": 0.01,
+            "dist_pct": 0.02,
             "slope": "水平→",
             "near_ema52": true,
             "ema52_value": 0.0698
@@ -3292,7 +3292,7 @@
         "30m": {
           "timeframe": "30m",
           "macd": -0.0,
-          "dist_ratio": -0.32,
+          "dist_ratio": -0.34,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -3302,7 +3302,7 @@
           "zero_cross_nth": 3,
           "ema52": {
             "above": false,
-            "dist_pct": 0.07,
+            "dist_pct": 0.08,
             "slope": "水平→",
             "near_ema52": true,
             "ema52_value": 0.0698
@@ -3316,7 +3316,7 @@
         "1h": {
           "timeframe": "1h",
           "macd": -0.0,
-          "dist_ratio": -0.57,
+          "dist_ratio": -0.58,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 1,
@@ -3326,7 +3326,7 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.18,
+            "dist_pct": 0.2,
             "slope": "水平→",
             "near_ema52": true,
             "ema52_value": 0.0699
@@ -3350,7 +3350,7 @@
           "zero_cross_nth": 2,
           "ema52": {
             "above": false,
-            "dist_pct": 0.37,
+            "dist_pct": 0.38,
             "slope": "水平→",
             "near_ema52": true,
             "ema52_value": 0.07
@@ -3364,7 +3364,7 @@
         "4h": {
           "timeframe": "4h",
           "macd": -0.0001,
-          "dist_ratio": -0.91,
+          "dist_ratio": -0.92,
           "direction": "下方",
           "divergence": 0,
           "hidden_div": 0,
@@ -3374,7 +3374,7 @@
           "zero_cross_nth": 3,
           "ema52": {
             "above": false,
-            "dist_pct": 0.49,
+            "dist_pct": 0.5,
             "slope": "水平→",
             "near_ema52": true,
             "ema52_value": 0.0701
@@ -3387,7 +3387,7 @@
         }
       },
       "conclusion": "⏳ 暂无明显信号，建议等待",
-      "updated_at": "2026-08-16T11:04:03.292928",
+      "updated_at": "2026-08-16T11:27:38.564331",
       "is_priority": true
     }
   }
